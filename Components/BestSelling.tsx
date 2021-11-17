@@ -37,7 +37,7 @@ const root: SxProps = {
 }
 
 const bestSellingCtn: SxProps = {
-  width: { xs: 0.6, sm: 0.4, md: 0.2 },
+  width: { xs: 0.6, sm: 0.4, md: 0.3 },
   textAlign: { sm: 'right' },
   backgroundColor: 'secondary.main',
   color: 'secondary.contrastText',
