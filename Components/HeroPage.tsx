@@ -102,6 +102,7 @@ const HeroPage = () => {
             alt="hero-page-image-small"
             layout="fill"
             priority
+            objectFit="cover"
           />
         </Box>
       </Box>
