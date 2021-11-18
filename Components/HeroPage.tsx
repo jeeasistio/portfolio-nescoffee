@@ -92,6 +92,21 @@ const listItem: SxProps = {
   textAlign: 'center'
 }
 
+const background: SxProps = {
+  display: { xs: 'none', md: 'block' },
+  position: 'absolute',
+  top: 0,
+  right: 0,
+  width: '100vw',
+  height: '100vh',
+  background:
+    'url(https://i.ibb.co/Qvxd5VG/coffee-background-small-2-edited.jpg)',
+  backgroundSize: 'cover',
+  zIndex: -2,
+  opacity: 0.5,
+  filter: 'blur(2px)'
+}
+
 const HeroPage = () => {
   return (
     <Box sx={root}>
@@ -161,6 +176,7 @@ const HeroPage = () => {
       </Box>
 
       <BlackBoxBackground />
+      <Box sx={background} />
     </Box>
   )
 }

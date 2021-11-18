@@ -101,6 +101,7 @@ export default _app
 {
   /* <img src="https://i.ibb.co/ph46R46/coffee-with-telephone-small.jpg" alt="coffee-with-telephone-small" border="0">
   <img src="https://i.ibb.co/4VwLsFr/coffee-background-small-1.jpg" alt="coffee-background-small-1" border="0">
+  <img src="https://i.ibb.co/Qvxd5VG/coffee-background-small-2-edited.jpg" alt="coffee-background-small-2-edited" border="0">
 <img src="https://i.ibb.co/QvcxNS6/review-coffee-small-1.jpg" alt="review-coffee-small-1" border="0">
 <img src="https://i.ibb.co/Cm1PD1B/review-coffee-small.jpg" alt="review-coffee-small" border="0">
 <img src="https://i.ibb.co/x1nHqbK/product-coffee-small.jpg" alt="product-coffee-small" border="0">

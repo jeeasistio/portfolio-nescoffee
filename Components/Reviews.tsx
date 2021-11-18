@@ -5,7 +5,7 @@ import Image from 'next/image'
 const root: SxProps = {
   display: 'flex',
   flexDirection: { xs: 'column', md: 'row' },
-  justifyContent: 'space-around',
+  justifyContent: { xs: 'center', md: 'space-between' },
   alignItems: 'center',
   gap: 2,
   my: 4,
@@ -20,20 +20,20 @@ const smileCtn: SxProps = {
 
 const review1: SxProps = {
   position: 'relative',
-  width: '100%',
+  width: 1,
   alignSelf: 'flex-end'
 }
 
 const review1ImageCtn: SxProps = {
   position: 'relative',
-  width: '100%',
-  height: 500
+  width: 1,
+  height: { xs: 500, lg: 700 }
 }
 
 const review1Text: SxProps = {
   position: 'absolute',
   top: '5%',
-  left: { xs: '-20%', sm: '-50%', md: '-40%' },
+  left: { xs: '-20%', sm: '-50%' },
   right: { xs: '70%', md: '80%' },
   backgroundColor: 'primary.main',
   color: 'primary.contrastText',
@@ -44,13 +44,13 @@ const review1Text: SxProps = {
 
 const review2: SxProps = {
   position: 'relative',
-  width: '100%',
+  width: 1,
   alignSelf: 'flex-start'
 }
 
 const review2ImageCtn: SxProps = {
   position: 'relative',
-  width: '100%',
+  width: 1,
   height: 400
 }
 
@@ -65,8 +65,6 @@ const review2Text: SxProps = {
   p: 2,
   boxShadow: 1
 }
-
-// TODO: Reviews xl breakpoint
 
 const Reviews = () => {
   return (
@@ -104,7 +102,7 @@ const Reviews = () => {
         </Box>
       </Grid>
 
-      <Grid item xs={10} md={8} sx={review2}>
+      <Grid item xs={10} md={8} lg={6} sx={review2}>
         <Box sx={review2ImageCtn}>
           <Image
             src="https://i.ibb.co/QvcxNS6/review-coffee-small-1.jpg"
