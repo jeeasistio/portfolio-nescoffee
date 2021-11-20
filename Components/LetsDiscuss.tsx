@@ -6,7 +6,7 @@ import { SxProps } from '@mui/system'
 const root: SxProps = {
   display: 'flex',
   flexDirection: { xs: 'column', md: 'row' },
-  my: 4
+  my: 12
 }
 
 const textCtn: SxProps = {
