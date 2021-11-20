@@ -29,10 +29,9 @@ const ProductSearch = () => {
             input={<StyledSelectInputBase />}
           >
             <MenuItem value="1" selected={true}>
-              Nutellatte
+              Coffee
             </MenuItem>
-            <MenuItem value="2">Nutellatte</MenuItem>
-            <MenuItem value="3">Nutellatte</MenuItem>
+            <MenuItem value="2">Tea</MenuItem>
           </Select>
         </FormControl>
       </Box>

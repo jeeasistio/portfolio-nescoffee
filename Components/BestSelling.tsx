@@ -33,7 +33,7 @@ const bestSellers = [
 ]
 
 const root: SxProps = {
-  my: 4
+  my: 12
 }
 
 const bestSellingCtn: SxProps = {

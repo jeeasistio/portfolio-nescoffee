@@ -8,8 +8,7 @@ const root: SxProps = {
   height: '90vh',
   display: 'flex',
   flexDirection: { xs: 'column', sm: 'row-reverse' },
-  overflowX: 'hidden',
-  mb: 4
+  overflowX: 'hidden'
 }
 
 const imageCtnOuter: SxProps = {

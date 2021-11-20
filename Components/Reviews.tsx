@@ -8,7 +8,7 @@ const root: SxProps = {
   justifyContent: { xs: 'center', md: 'space-between' },
   alignItems: 'center',
   gap: 2,
-  my: 4,
+  my: 12,
   p: 1
 }
 
