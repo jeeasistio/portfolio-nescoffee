@@ -14,7 +14,7 @@ const root: SxProps = {
 }
 
 const categoryCtn: SxProps = {
-  width: { xs: 0.6, sm: 0.4, md: 0.3 },
+  width: { xs: 0.5, sm: 0.4, md: 0.3, lg: 0.2, xl: 0.1 },
   textAlign: { sm: 'right' },
   backgroundColor: 'secondary.main',
   color: 'secondary.contrastText',

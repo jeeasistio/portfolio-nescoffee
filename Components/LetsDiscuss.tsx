@@ -37,7 +37,7 @@ const subheading: SxProps = {
 
 const imageCtn: SxProps = {
   width: { md: 0.4 },
-  display: 'flex',
+  display: { xs: 'none', md: 'flex' },
   justifyContent: 'center',
   p: 4
 }
