@@ -7,6 +7,7 @@ const StyledSelectInputBase = styled(InputBase)(({ theme }) => ({
     background: theme.palette.secondary.main,
     color: theme.palette.primary.light,
     boxShadow: theme.shadows[1],
+    letterSpacing: 1,
     '&:focus': {
       background: theme.palette.secondary.main,
       color: theme.palette.primary.light,

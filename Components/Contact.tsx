@@ -5,7 +5,11 @@ import { SxProps } from '@mui/system'
 
 const root: SxProps = {
   display: 'flex',
-  flexDirection: { xs: 'column' }
+  flexDirection: { xs: 'column', md: 'row' },
+  gap: 2,
+  p: 2,
+  width: 1,
+  minHeight: '80vh'
 }
 
 const Contact = () => {

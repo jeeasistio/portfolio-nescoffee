@@ -24,7 +24,6 @@ const ProductSearch = () => {
         <FormControl variant="standard">
           <Select
             id="flavor-select"
-            size="small"
             value="1"
             input={<StyledSelectInputBase />}
           >

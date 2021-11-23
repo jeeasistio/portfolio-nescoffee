@@ -2,57 +2,80 @@ import { Box, FormControl, MenuItem, Select, Typography } from '@mui/material'
 import { SxProps } from '@mui/system'
 import StyledSelectInputBase from './StyledComponents/StyledSelectInputBase'
 import StyledTextField from './StyledComponents/StyledTextField'
+import StyledButton from './StyledComponents/StyledButton'
 
 const root: SxProps = {
-  width: { xs: 1, md: 0.5 }
+  width: { xs: 1, md: 0.5 },
+  p: 4,
+  border: 2,
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center'
 }
 
 const form: SxProps = {
   display: 'flex',
-  flexDirection: 'column'
+  flexDirection: 'column',
+  justifyContent: 'space-evenly',
+  gap: 4
 }
 
-// TODO: Contact Form
+const headingCtn: SxProps = {
+  color: 'primary.main'
+}
+
+const selectFields: SxProps = {
+  display: 'flex',
+  gap: 2
+}
 
 const ContactForm = () => {
   return (
     <Box sx={root}>
-      <Box>
-        <Typography>Contact Form</Typography>
+      <Box sx={headingCtn}>
+        <Typography variant="h5" paragraph>
+          Contact Form
+        </Typography>
       </Box>
 
       <Box sx={form}>
-        <StyledTextField variant="outlined" label="name" />
-        <StyledTextField variant="outlined" label="Email" />
-        <FormControl sx={{ m: 5 }} variant="standard">
-          <Select
-            id="flavor-select"
-            size="small"
-            value="1"
-            input={<StyledSelectInputBase />}
-          >
-            <MenuItem value="1" selected={true}>
-              Nutellatte
-            </MenuItem>
-            <MenuItem value="2">Nutellatte</MenuItem>
-            <MenuItem value="3">Nutellatte</MenuItem>
-          </Select>
-        </FormControl>
-        <FormControl sx={{ m: 5 }} variant="standard">
-          <Select
-            id="flavor-select"
-            size="small"
-            value="1"
-            input={<StyledSelectInputBase />}
-          >
-            <MenuItem value="1" selected={true}>
-              Nutellatte
-            </MenuItem>
-            <MenuItem value="2">Nutellatte</MenuItem>
-            <MenuItem value="3">Nutellatte</MenuItem>
-          </Select>
-        </FormControl>
-        <StyledTextField multiline variant="outlined" label="Description..." />
+        <StyledTextField variant="outlined" label="Name" size="small" />
+        <StyledTextField variant="outlined" label="Email" size="small" />
+        <Box sx={selectFields}>
+          <FormControl variant="standard" fullWidth>
+            <Select
+              id="flavor-select"
+              value="1"
+              input={<StyledSelectInputBase />}
+            >
+              <MenuItem value="1" selected={true}>
+                Nutellatte
+              </MenuItem>
+              <MenuItem value="2">Nutellatte</MenuItem>
+              <MenuItem value="3">Nutellatte</MenuItem>
+            </Select>
+          </FormControl>
+          <FormControl variant="standard" fullWidth>
+            <Select
+              id="flavor-select"
+              value="1"
+              input={<StyledSelectInputBase />}
+            >
+              <MenuItem value="1" selected={true}>
+                Nutellatte
+              </MenuItem>
+              <MenuItem value="2">Nutellatte</MenuItem>
+              <MenuItem value="3">Nutellatte</MenuItem>
+            </Select>
+          </FormControl>
+        </Box>
+        <StyledTextField
+          multiline
+          variant="outlined"
+          label="Description..."
+          size="small"
+        />
+        <StyledButton variant="contained">Send Email</StyledButton>
       </Box>
     </Box>
   )

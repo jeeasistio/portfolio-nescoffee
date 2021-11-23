@@ -15,11 +15,15 @@ import { SxProps } from '@mui/system'
 export const navLinks = [
   { name: 'Home', link: '/' },
   { name: 'Products', link: '/products' },
-  { name: 'Contact', link: '/contact' }
+  { name: 'Contacts', link: '/contacts' }
 ]
 
 const root: SxProps = {
   display: { sm: 'none' }
+}
+
+const linkText: SxProps = {
+  letterSpacing: 1
 }
 
 const NavLinksMobile = () => {
@@ -43,7 +47,7 @@ const NavLinksMobile = () => {
         <MenuList>
           {navLinks.map((link) => (
             <MenuItem selected={router.pathname === link.link} key={link.name}>
-              <ListItemText>
+              <ListItemText sx={linkText}>
                 <Link href={link.link}>
                   <a>{link.name}</a>
                 </Link>

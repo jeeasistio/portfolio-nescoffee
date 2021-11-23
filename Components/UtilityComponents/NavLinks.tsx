@@ -11,7 +11,8 @@ const root: SxProps = {
 const button: SxProps = {
   textTransform: 'none',
   borderRadius: 0,
-  color: 'secondary.main'
+  color: 'secondary.main',
+  letterSpacing: 1
 }
 
 const activeButton: SxProps = {

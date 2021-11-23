@@ -13,7 +13,8 @@ const toolbar: SxProps = {
   justifyContent: 'space-between',
   alignItems: 'center',
   color: 'primary.main',
-  minHeight: '10vh'
+  minHeight: '10vh',
+  p: 1
 }
 
 const HeroPageHeader = () => {

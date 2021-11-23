@@ -14,6 +14,9 @@ import FacebookIcon from '@mui/icons-material/Facebook'
 import Link from 'next/link'
 
 const root: SxProps = {
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-around',
   backgroundColor: 'secondary.main',
   color: 'common.white',
   width: { xs: 1, md: 0.5 },
