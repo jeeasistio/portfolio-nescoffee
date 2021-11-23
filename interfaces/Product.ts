@@ -8,4 +8,6 @@ export default interface Product {
   available: boolean
 }
 
-export type Categories = 'Coffee' | 'Tea'
+export const categories = ['Coffee', 'Tea'] as const
+
+export type Categories = typeof categories[number]
