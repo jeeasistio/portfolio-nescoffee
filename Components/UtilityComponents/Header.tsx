@@ -14,7 +14,8 @@ const toolbar: SxProps = {
   alignItems: 'center',
   color: 'primary.main',
   minHeight: '10vh',
-  p: 1
+  p: 1,
+  py: 2
 }
 
 const HeroPageHeader = () => {

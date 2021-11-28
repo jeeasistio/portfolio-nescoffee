@@ -1,12 +1,9 @@
 import { Box, Grid, Typography } from '@mui/material'
-import Product, { Categories } from '../interfaces/Product'
 import ProductCard from './ProductCard'
 import { SxProps } from '@mui/system'
+import { ProductList } from '../graphql/generatedTypes'
 
-interface Props {
-  products: Product[]
-  category: Categories
-}
+interface Props extends ProductList {}
 
 const root: SxProps = {
   my: 4,
@@ -35,7 +32,7 @@ const ProductList = ({ category, products }: Props) => {
         <Typography variant="h5">{category}</Typography>
       </Box>
       <Grid sx={gridCtn} container>
-        {products.map((product, index) => (
+        {products?.map((product, index) => (
           <ProductCard key={index} product={product} />
         ))}
       </Grid>
