@@ -1,5 +1,7 @@
 import { Box } from '@mui/material'
 import { SxProps } from '@mui/system'
+import { motion } from 'framer-motion'
+import { boxBackgroundVariant } from './../../animations/boxBackground'
 
 const root: SxProps = {
   display: { xs: 'none', sm: 'block' },
@@ -13,7 +15,15 @@ const root: SxProps = {
 }
 
 const BlackBoxBackground = () => {
-  return <Box sx={root}></Box>
+  return (
+    <Box
+      sx={root}
+      component={motion.div}
+      variants={boxBackgroundVariant}
+      initial="hidden"
+      whileInView="show"
+    />
+  )
 }
 
 export default BlackBoxBackground
