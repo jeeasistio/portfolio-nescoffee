@@ -1,7 +1,7 @@
-import Product from '../interfaces/Product'
 import { Box, Grid, Typography } from '@mui/material'
 import { SxProps } from '@mui/system'
 import Image from 'next/image'
+import { Product } from '../graphql/generatedTypes'
 import StyledButton from './StyledComponents/StyledButton'
 
 const innerCtn = {

@@ -5,7 +5,7 @@ import { SxProps } from '@mui/system'
 
 const root: SxProps = {
   display: 'flex',
-  flexDirection: { xs: 'column', md: 'row' },
+  flexDirection: { xs: 'column-reverse', md: 'row' },
   gap: 2,
   p: 2,
   width: 1,

@@ -1,7 +1,7 @@
 import Contact from '../Components/Contact'
 import Layout from '../Components/UtilityComponents/Layout'
 
-const contacts = () => {
+const Contacts = () => {
   return (
     <Layout>
       <Contact />
@@ -9,4 +9,4 @@ const contacts = () => {
   )
 }
 
-export default contacts
+export default Contacts

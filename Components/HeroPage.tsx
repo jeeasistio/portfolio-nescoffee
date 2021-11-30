@@ -1,6 +1,9 @@
 import { Box, List, ListItem, ListItemText, Typography } from '@mui/material'
 import { SxProps } from '@mui/system'
+import { motion } from 'framer-motion'
 import Image from 'next/image'
+import { heroButtonVariant } from '../animations/heroButton'
+import { heroHeadingVariant } from '../animations/heroHeading'
 import StyledButton from './StyledComponents/StyledButton'
 import BlackBoxBackground from './UtilityComponents/BlackBoxBackground'
 
@@ -41,6 +44,12 @@ const textCtnInner: SxProps = {
   justifyContent: 'center',
   flexGrow: 2,
   p: 1
+}
+
+const headingCtn: SxProps = {
+  display: 'flex',
+  overflow: 'hidden',
+  mb: 1
 }
 
 const heading: SxProps = {
@@ -106,6 +115,8 @@ const background: SxProps = {
   filter: 'blur(2px)'
 }
 
+const headingWord = `Have\u00a0a\u00a0break.`.split('')
+
 const HeroPage = () => {
   return (
     <Box sx={root}>
@@ -123,10 +134,24 @@ const HeroPage = () => {
 
       <Box sx={textCtnOuter}>
         <Box sx={textCtnInner}>
-          <Box mb={1}>
-            <Typography sx={heading} variant="h3">
-              Have a break.
-            </Typography>
+          <Box
+            sx={headingCtn}
+            component={motion.div}
+            variants={heroHeadingVariant}
+            initial="hidden"
+            whileInView="show"
+          >
+            {headingWord.map((letter, index) => (
+              <Typography
+                key={index}
+                component={motion.h3}
+                sx={heading}
+                variants={heroHeadingVariant}
+                variant="h3"
+              >
+                {letter}
+              </Typography>
+            ))}
           </Box>
 
           <Box sx={subheadingCtn}>
@@ -139,12 +164,30 @@ const HeroPage = () => {
             </Typography>
           </Box>
 
-          <Box sx={buttonsCtn}>
-            <StyledButton size="large" color="primary" variant="contained">
+          <Box
+            sx={buttonsCtn}
+            component={motion.div}
+            variants={heroButtonVariant}
+            initial="hidden"
+            whileInView="show"
+          >
+            <StyledButton
+              variants={heroButtonVariant}
+              component={motion.button}
+              size="large"
+              color="primary"
+              variant="contained"
+            >
               See our products
             </StyledButton>
 
-            <StyledButton size="large" color="secondary" variant="contained">
+            <StyledButton
+              variants={heroButtonVariant}
+              component={motion.button}
+              size="large"
+              color="secondary"
+              variant="contained"
+            >
               Talk to us
             </StyledButton>
           </Box>
