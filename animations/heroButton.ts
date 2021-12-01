@@ -11,13 +11,14 @@ export const heroButtonCtnVariant: Variants = {
 
 export const heroButtonVariant: Variants = {
   hidden: {
-    scaleX: 0,
-    originX: 0
+    opacity: 0,
+    x: -40
   },
   show: {
-    scaleX: 1,
+    opacity: 1,
+    x: 0,
     transition: {
-      duration: 1.5,
+      duration: 2,
       type: 'spring',
       stiffness: 200,
       damping: 45,

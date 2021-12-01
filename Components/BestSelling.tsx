@@ -61,15 +61,15 @@ const sx: SxProps = {
 const BestSelling = () => {
   return (
     <Box sx={sx.root}>
-      <motion.div
+      <Box
+        sx={sx.bestSellingCtn}
+        component={motion.div}
         variants={bestSellingVariant}
         initial="hidden"
         whileInView="show"
       >
-        <Box sx={sx.bestSellingCtn}>
-          <Typography variant="h5">Best Selling</Typography>
-        </Box>
-      </motion.div>
+        <Typography variant="h5">Best Selling</Typography>
+      </Box>
 
       <Grid container sx={sx.grid}>
         {bestSellers.map((product, index) => (

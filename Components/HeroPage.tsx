@@ -130,21 +130,25 @@ const HeroPage = () => {
 
       <Box sx={sx.textCtnOuter}>
         <Box sx={sx.textCtnInner}>
-          <motion.div
+          <Box
+            sx={sx.headingCtn}
+            component={motion.div}
             variants={heroHeadingVariant}
             initial="hidden"
             animate="show"
           >
-            <Box sx={sx.headingCtn}>
-              {headingWord.map((letter, index) => (
-                <motion.div key={index} variants={heroHeadingVariant}>
-                  <Typography sx={sx.heading} variant="h3">
-                    {letter}
-                  </Typography>
-                </motion.div>
-              ))}
-            </Box>
-          </motion.div>
+            {headingWord.map((letter, index) => (
+              <Typography
+                sx={sx.heading}
+                component={motion.h3}
+                key={index}
+                variants={heroHeadingVariant}
+                variant="h3"
+              >
+                {letter}
+              </Typography>
+            ))}
+          </Box>
 
           <Box sx={sx.subheadingCtn}>
             <Typography sx={sx.subheading} variant="body2">
@@ -156,29 +160,25 @@ const HeroPage = () => {
             </Typography>
           </Box>
 
-          <motion.div
+          <Box
+            sx={sx.buttonsCtn}
+            component={motion.div}
             variants={heroButtonCtnVariant}
             initial="hidden"
             animate="show"
           >
-            <Box sx={sx.buttonsCtn}>
-              <motion.div variants={heroButtonVariant}>
-                <StyledButton size="large" color="primary" variant="contained">
-                  See our products
-                </StyledButton>
-              </motion.div>
+            <motion.div variants={heroButtonVariant}>
+              <StyledButton size="large" color="primary" variant="contained">
+                See our products
+              </StyledButton>
+            </motion.div>
 
-              <motion.div variants={heroButtonVariant}>
-                <StyledButton
-                  size="large"
-                  color="secondary"
-                  variant="contained"
-                >
-                  Talk to us
-                </StyledButton>
-              </motion.div>
-            </Box>
-          </motion.div>
+            <motion.div variants={heroButtonVariant}>
+              <StyledButton size="large" color="secondary" variant="contained">
+                Talk to us
+              </StyledButton>
+            </motion.div>
+          </Box>
         </Box>
 
         <Box sx={sx.wordsCtn}>

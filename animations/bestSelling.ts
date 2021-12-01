@@ -2,17 +2,17 @@ import { Variants } from 'framer-motion/types/types'
 
 export const bestSellingVariant: Variants = {
   hidden: {
-    scaleX: 0,
-    originX: 0
+    opacity: 0,
+    x: -50
   },
   show: {
-    scaleX: 1,
+    opacity: 1,
+    x: 0,
     transition: {
-      duration: 2,
       type: 'spring',
       stiffness: 200,
       damping: 45,
-      mass: 3
+      mass: 2
     }
   }
 }

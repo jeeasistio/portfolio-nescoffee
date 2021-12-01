@@ -24,7 +24,7 @@ export default async function handler(
   res: NextApiResponse
 ) {
   if (connection.readyState >= 1 === false) {
-    connect(process.env.MONGO_URI)
+    await connect(process.env.MONGO_URI)
   }
   await serverStart
   await apolloServer.createHandler({ path: '/api/graphql' })(req, res)
