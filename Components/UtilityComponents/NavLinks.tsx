@@ -1,11 +1,14 @@
 import { navLinks } from './NavLinksMobile'
-import { Box, Button } from '@mui/material'
 import { SxProps } from '@mui/system'
 import Link from 'next/link'
 import { useRouter } from 'next/dist/client/router'
+import Box from '@mui/material/Box'
+import Button from '@mui/material/Button'
 
-const root: SxProps = {
-  display: { xs: 'none', sm: 'flex' }
+const sx: SxProps = {
+  root: {
+    display: { xs: 'none', sm: 'flex' }
+  }
 }
 
 const button: SxProps = {
@@ -27,16 +30,15 @@ const heroButton: SxProps = {
 }
 
 const heroActiveButton: SxProps = {
-  ...button,
-  color: 'secondary.contrastText',
-  borderBottom: 2
+  ...activeButton,
+  color: 'secondary.contrastText'
 }
 
 const NavLinks = () => {
   const router = useRouter()
 
   return (
-    <Box sx={root}>
+    <Box sx={sx.root}>
       {navLinks.map((link) => (
         <Link key={link.name} href={link.link} passHref>
           <Button

@@ -1,4 +1,4 @@
-import { Variants } from 'framer-motion'
+import { Variants } from 'framer-motion/types/types'
 
 export const boxBackgroundVariant: Variants = {
   hidden: {

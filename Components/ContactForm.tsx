@@ -1,47 +1,50 @@
-import { Box, FormControl, MenuItem, Select, Typography } from '@mui/material'
 import { SxProps } from '@mui/system'
-import StyledSelectInputBase from './StyledComponents/StyledSelectInputBase'
+import Box from '@mui/material/Box'
+import Typography from '@mui/material/Typography'
+import FormControl from '@mui/material/FormControl'
+import Select from '@mui/material/Select'
+import MenuItem from '@mui/material/MenuItem'
 import StyledTextField from './StyledComponents/StyledTextField'
+import StyledSelectInputBase from './StyledComponents/StyledSelectInputBase'
 import StyledButton from './StyledComponents/StyledButton'
 
-const root: SxProps = {
-  width: { xs: 1, md: 0.5 },
-  p: 4,
-  border: 2,
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center'
-}
-
-const form: SxProps = {
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'space-evenly',
-  gap: 4
-}
-
-const headingCtn: SxProps = {
-  color: 'primary.main'
-}
-
-const selectFields: SxProps = {
-  display: 'flex',
-  gap: 2
+const sx: SxProps = {
+  root: {
+    width: { xs: 1, md: 0.5 },
+    p: 4,
+    border: 2,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center'
+  },
+  form: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-evenly',
+    gap: 4
+  },
+  headingCtn: {
+    color: 'primary.main'
+  },
+  selectFields: {
+    display: 'flex',
+    gap: 2
+  }
 }
 
 const ContactForm = () => {
   return (
-    <Box sx={root}>
-      <Box sx={headingCtn}>
+    <Box sx={sx.root}>
+      <Box sx={sx.headingCtn}>
         <Typography variant="h5" paragraph>
           Contact Form
         </Typography>
       </Box>
 
-      <Box sx={form}>
+      <Box sx={sx.form}>
         <StyledTextField variant="outlined" label="Name" size="small" />
         <StyledTextField variant="outlined" label="Email" size="small" />
-        <Box sx={selectFields}>
+        <Box sx={sx.selectFields}>
           <FormControl variant="standard" fullWidth>
             <Select
               id="flavor-select"

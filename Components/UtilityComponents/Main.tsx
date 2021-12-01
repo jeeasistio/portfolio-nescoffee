@@ -1,8 +1,10 @@
-import { Box } from '@mui/material'
+import Box from '@mui/material/Box'
 import { SxProps } from '@mui/system'
 
-const root: SxProps = {
-  minHeight: '80vh'
+const sx: SxProps = {
+  root: {
+    minHeight: '80vh'
+  }
 }
 
 interface Props {
@@ -11,7 +13,7 @@ interface Props {
 
 const Main = ({ children }: Props) => {
   return (
-    <Box component="main" sx={root}>
+    <Box component="main" sx={sx.root}>
       {children}
     </Box>
   )

@@ -2,8 +2,8 @@ import { AppProps } from 'next/dist/shared/lib/router/router'
 import theme from '../themes/theme'
 import '../themes/globals.css'
 import { ThemeProvider } from '@mui/material/styles'
-import { CssBaseline } from '@mui/material'
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
+import CssBaseline from '@mui/material/CssBaseline'
 
 const client = new ApolloClient({
   uri: '/api/graphql',
