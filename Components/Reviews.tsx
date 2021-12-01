@@ -67,9 +67,9 @@ const Reviews = () => {
   return (
     <Grid container sx={sx.root}>
       <Grid item xs={12} md={4} sx={sx.smileCtn}>
-        <Typography variant="h4">smile.</Typography>
-        <Typography variant="h4">breathe.</Typography>
-        <Typography variant="h4" paragraph>
+        <Typography variant="h3">smile.</Typography>
+        <Typography variant="h3">breathe.</Typography>
+        <Typography variant="h3" paragraph>
           and go slowly.
         </Typography>
         <Typography>- thich nhat hanh</Typography>
@@ -86,14 +86,14 @@ const Reviews = () => {
           />
         </Box>
         <Box sx={sx.review1Text}>
-          <Typography paragraph>
+          <Typography variant="subtitle1" paragraph>
             “ Aliquam ac purus tortor. Mauris eleifend lectus nulla, egestas
             tincidunt dolor consequat. “
           </Typography>
-          <Typography variant="subtitle2" align="right">
+          <Typography align="right" fontWeight="medium">
             Diana
           </Typography>
-          <Typography variant="body2" align="right">
+          <Typography align="right" variant="subtitle2">
             - Coffee Lover
           </Typography>
         </Box>
@@ -110,14 +110,14 @@ const Reviews = () => {
           />
         </Box>
         <Box sx={sx.review2Text}>
-          <Typography paragraph>
+          <Typography variant="subtitle1" paragraph>
             “ Aliquam ac purus tortor. Mauris eleifend lectus nulla, egestas
             tincidunt dolor consequat. “
           </Typography>
-          <Typography variant="subtitle2" align="right">
+          <Typography align="right" fontWeight="medium">
             Anna
           </Typography>
-          <Typography variant="body2" align="right">
+          <Typography align="right" variant="subtitle2">
             - Artist
           </Typography>
         </Box>

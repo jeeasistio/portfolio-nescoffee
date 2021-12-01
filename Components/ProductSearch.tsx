@@ -19,11 +19,7 @@ const ProductSearch = () => {
   return (
     <Box sx={sx.root}>
       <Box>
-        <StyledTextField
-          variant="outlined"
-          size="small"
-          label="Search products..."
-        />
+        <StyledTextField variant="outlined" label="Search products..." />
       </Box>
       <Box>
         <FormControl variant="standard">

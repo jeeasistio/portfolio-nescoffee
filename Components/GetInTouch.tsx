@@ -43,7 +43,7 @@ const GetInTouch = () => {
   return (
     <Box sx={sx.root}>
       <Box>
-        <Typography variant="h4" paragraph>
+        <Typography variant="h3" paragraph>
           We&apos;d love to hear from you
         </Typography>
         <Typography sx={sx.subheading}>

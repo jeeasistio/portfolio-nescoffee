@@ -66,7 +66,7 @@ const sx: SxProps = {
     width: { sm: 0.7 }
   },
   subheading: {
-    color: 'text.secondary'
+    color: 'secondary.light'
   },
   coffeeSubheading: {
     display: 'inline',
@@ -115,7 +115,7 @@ const headingWord = `Have\u00a0a\u00a0break.`.split('')
 
 const HeroPage = () => {
   return (
-    <Box sx={sx.root}>
+    <Box sx={sx.root} component="section">
       <Box sx={sx.imageCtnOuter}>
         <Box sx={sx.imageCtnInner}>
           <Image
@@ -140,10 +140,10 @@ const HeroPage = () => {
             {headingWord.map((letter, index) => (
               <Typography
                 sx={sx.heading}
-                component={motion.h3}
+                component={motion.h2}
                 key={index}
                 variants={heroHeadingVariant}
-                variant="h3"
+                variant="h2"
               >
                 {letter}
               </Typography>
@@ -151,7 +151,7 @@ const HeroPage = () => {
           </Box>
 
           <Box sx={sx.subheadingCtn}>
-            <Typography sx={sx.subheading} variant="body2">
+            <Typography sx={sx.subheading}>
               Boost your productivity and build your mood with a glass of{' '}
               <Typography component="span" sx={sx.coffeeSubheading}>
                 COFFEE
@@ -182,24 +182,15 @@ const HeroPage = () => {
         </Box>
 
         <Box sx={sx.wordsCtn}>
-          <List sx={sx.words} dense>
+          <List sx={sx.words}>
             <ListItem sx={sx.listItem}>
-              <ListItemText
-                primary="Refreshing"
-                primaryTypographyProps={{ variant: 'body2' }}
-              />
+              <ListItemText primary="Refreshing" />
             </ListItem>
             <ListItem sx={sx.listItem}>
-              <ListItemText
-                primary="Pure Coffee"
-                primaryTypographyProps={{ variant: 'body2' }}
-              />
+              <ListItemText primary="Pure Coffee" />
             </ListItem>
             <ListItem sx={sx.listItem}>
-              <ListItemText
-                primary="Creamy"
-                primaryTypographyProps={{ variant: 'body2' }}
-              />
+              <ListItemText primary="Creamy" />
             </ListItem>
           </List>
         </Box>

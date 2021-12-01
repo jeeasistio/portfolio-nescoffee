@@ -25,22 +25,25 @@ interface Props {
 }
 
 const sx: SxProps = {
+  borderFix: {
+    p: 0.5,
+    backgroundColor: 'secondary.main'
+  },
   innerCtn: {
     display: 'flex',
     justifyContent: 'space-between',
     backgroundColor: 'primary.main',
     borderRadius: 0,
-    border: 4,
     boxShadow: 1,
-    p: 0.2,
+    p: 0.5,
     overflow: 'hidden',
     position: 'relative'
   },
   textCtn: { p: 1, width: 1 },
   imageCtn: { position: 'relative', width: 1, overflow: 'hidden' },
   description: {
-    fontSize: 'small',
-    fontWeight: 'medium'
+    fontWeight: 'medium',
+    color: 'secondary.light'
   },
   orderNow: {
     position: 'absolute',
@@ -49,6 +52,7 @@ const sx: SxProps = {
     backgroundColor: 'secondary.main',
     color: 'common.white',
     display: 'flex',
+    textAlign: 'center',
     width: 0.5,
     height: 1
   }
@@ -70,46 +74,50 @@ const BestSellingProduct = ({ product }: Props) => {
 
   return (
     <Grid item xs={12} sm={8} md={5} lg={3.9}>
-      <Box
-        sx={sx.innerCtn}
-        component={motion.div}
-        onHoverStart={handleHover}
-        onHoverEnd={handleNotHover}
-      >
-        <Box sx={sx.imageCtn}>
-          <motion.div
-            variants={imageVariant}
-            animate={imageControls}
-            initial="normal"
-          >
-            <Image
-              src={product.image.src}
-              alt={product.image.alt}
-              layout="responsive"
-              width="80%"
-              height="100%"
-            />
-          </motion.div>
-        </Box>
-        <Box sx={sx.textCtn}>
-          <Typography variant="h4" paragraph>
-            {product.name}
-          </Typography>
-          <Typography sx={sx.description}>{product.description}</Typography>
+      <Box sx={sx.borderFix}>
+        <Box
+          sx={sx.innerCtn}
+          component={motion.div}
+          onHoverStart={handleHover}
+          onHoverEnd={handleNotHover}
+        >
+          <Box sx={sx.imageCtn}>
+            <motion.div
+              variants={imageVariant}
+              animate={imageControls}
+              initial="normal"
+            >
+              <Image
+                src={product.image.src}
+                alt={product.image.alt}
+                layout="responsive"
+                width="80%"
+                height="100%"
+              />
+            </motion.div>
+          </Box>
+          <Box sx={sx.textCtn}>
+            <Typography variant="h4" paragraph>
+              {product.name}
+            </Typography>
+            <Typography variant="subtitle1" sx={sx.description}>
+              {product.description}
+            </Typography>
 
-          <Box
-            sx={sx.orderNow}
-            component={motion.div}
-            variants={bestSellingProductsVariant}
-            animate={orderNowControls}
-            initial="hidden"
-          >
-            <CardActionArea>
-              <Typography variant="h5" paragraph>
-                Order Now!
-              </Typography>
-              <ArrowForwardIcon fontSize="large" />
-            </CardActionArea>
+            <Box
+              sx={sx.orderNow}
+              component={motion.div}
+              variants={bestSellingProductsVariant}
+              animate={orderNowControls}
+              initial="hidden"
+            >
+              <CardActionArea>
+                <Typography variant="h5" paragraph>
+                  Order Now!
+                </Typography>
+                <ArrowForwardIcon fontSize="large" />
+              </CardActionArea>
+            </Box>
           </Box>
         </Box>
       </Box>

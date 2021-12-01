@@ -50,7 +50,7 @@ const LetsDiscuss = () => {
   return (
     <Box sx={sx.root}>
       <Box sx={sx.textCtn}>
-        <Typography sx={sx.heading} variant="h4" paragraph>
+        <Typography sx={sx.heading} variant="h3" paragraph>
           Let&apos;s Discuss About Your Opinions
         </Typography>
         <Box sx={sx.textCtnActions}>
@@ -59,7 +59,9 @@ const LetsDiscuss = () => {
             our services.Ut id lorem urna. Nullam vestibulum odio eget ex
             molestie lacinia.
           </Typography>
-          <StyledButton variant="contained">Contact us</StyledButton>
+          <StyledButton size="large" variant="contained">
+            Contact us
+          </StyledButton>
         </Box>
       </Box>
 

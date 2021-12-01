@@ -42,6 +42,7 @@ const NavLinks = () => {
       {navLinks.map((link) => (
         <Link key={link.name} href={link.link} passHref>
           <Button
+            size="large"
             sx={
               router.pathname === '/' && router.pathname === link.link
                 ? heroActiveButton

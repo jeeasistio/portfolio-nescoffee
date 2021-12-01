@@ -6,6 +6,7 @@ const StyledButton = styled(Button)(({ theme }) => ({
   borderRadius: 0,
   boxShadow: theme.shadows[1],
   letterSpacing: 1,
+  fontSize: theme.typography.fontSize * 1.3,
   '&:hover': {
     boxShadow: theme.shadows[4]
   }

@@ -35,7 +35,7 @@ interface Props {
 
 const ProductCard = ({ product }: Props) => {
   return (
-    <Grid item xs={5.5 as 5} sm={4} md={3} lg={2}>
+    <Grid item xs={5.5} sm={4} md={3} lg={2}>
       <Box sx={sx.innerCtn}>
         <Box sx={sx.imageCtn}>
           <Image
@@ -49,7 +49,7 @@ const ProductCard = ({ product }: Props) => {
         </Box>
         <Box sx={sx.textCtn}>
           <Typography variant="h6">{product.name}</Typography>
-          <Typography sx={sx.description} variant="body2" paragraph>
+          <Typography sx={sx.description} paragraph>
             {product.description}
           </Typography>
           <Box sx={sx.textActions}>

@@ -41,7 +41,7 @@ const sx: SxProps = {
     my: 12
   },
   bestSellingCtn: {
-    width: { xs: 0.5, sm: 0.4, md: 0.3, lg: 0.2, xl: 0.1 },
+    width: { xs: 0.6, sm: 0.4, md: 0.3, lg: 0.2, xl: 0.1 },
     textAlign: { sm: 'right' },
     backgroundColor: 'secondary.main',
     color: 'secondary.contrastText',
@@ -68,7 +68,7 @@ const BestSelling = () => {
         initial="hidden"
         whileInView="show"
       >
-        <Typography variant="h5">Best Selling</Typography>
+        <Typography variant="h4">Best Selling</Typography>
       </Box>
 
       <Grid container sx={sx.grid}>

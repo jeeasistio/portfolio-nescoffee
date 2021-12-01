@@ -31,7 +31,7 @@ const ProductList = ({ category, products }: Props) => {
   return (
     <Box sx={sx.root}>
       <Box sx={sx.categoryCtn}>
-        <Typography variant="h5">{category}</Typography>
+        <Typography variant="h4">{category}</Typography>
       </Box>
       <Grid sx={sx.gridCtn} container>
         {products?.map((product, index) => (

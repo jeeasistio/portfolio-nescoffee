@@ -21,7 +21,7 @@ const sx: SxProps = {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-evenly',
-    gap: 4
+    gap: 3
   },
   headingCtn: {
     color: 'primary.main'
@@ -36,14 +36,14 @@ const ContactForm = () => {
   return (
     <Box sx={sx.root}>
       <Box sx={sx.headingCtn}>
-        <Typography variant="h5" paragraph>
+        <Typography variant="h3" paragraph>
           Contact Form
         </Typography>
       </Box>
 
       <Box sx={sx.form}>
-        <StyledTextField variant="outlined" label="Name" size="small" />
-        <StyledTextField variant="outlined" label="Email" size="small" />
+        <StyledTextField variant="outlined" label="Name" />
+        <StyledTextField variant="outlined" label="Email" />
         <Box sx={sx.selectFields}>
           <FormControl variant="standard" fullWidth>
             <Select
@@ -72,12 +72,7 @@ const ContactForm = () => {
             </Select>
           </FormControl>
         </Box>
-        <StyledTextField
-          multiline
-          variant="outlined"
-          label="Description..."
-          size="small"
-        />
+        <StyledTextField multiline variant="outlined" label="Description..." />
         <StyledButton variant="contained">Send Email</StyledButton>
       </Box>
     </Box>
