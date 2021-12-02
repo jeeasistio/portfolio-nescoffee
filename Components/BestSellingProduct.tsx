@@ -52,7 +52,9 @@ const sx: SxProps = {
     backgroundColor: 'secondary.main',
     color: 'common.white',
     display: 'flex',
-    textAlign: 'center',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
     width: 0.5,
     height: 1
   }
@@ -75,51 +77,51 @@ const BestSellingProduct = ({ product }: Props) => {
   return (
     <Grid item xs={12} sm={8} md={5} lg={3.9}>
       <Box sx={sx.borderFix}>
-        <Box
-          sx={sx.innerCtn}
-          component={motion.div}
-          onHoverStart={handleHover}
-          onHoverEnd={handleNotHover}
-        >
-          <Box sx={sx.imageCtn}>
-            <motion.div
-              variants={imageVariant}
-              animate={imageControls}
-              initial="normal"
-            >
-              <Image
-                src={product.image.src}
-                alt={product.image.alt}
-                layout="responsive"
-                width="80%"
-                height="100%"
-              />
-            </motion.div>
-          </Box>
-          <Box sx={sx.textCtn}>
-            <Typography variant="h4" paragraph>
-              {product.name}
-            </Typography>
-            <Typography variant="subtitle1" sx={sx.description}>
-              {product.description}
-            </Typography>
+        <CardActionArea>
+          <Box
+            sx={sx.innerCtn}
+            component={motion.div}
+            onHoverStart={handleHover}
+            onHoverEnd={handleNotHover}
+          >
+            <Box sx={sx.imageCtn}>
+              <motion.div
+                variants={imageVariant}
+                animate={imageControls}
+                initial="normal"
+              >
+                <Image
+                  src={product.image.src}
+                  alt={product.image.alt}
+                  layout="responsive"
+                  width="80%"
+                  height="100%"
+                />
+              </motion.div>
+            </Box>
+            <Box sx={sx.textCtn}>
+              <Typography variant="h4" paragraph>
+                {product.name}
+              </Typography>
+              <Typography variant="subtitle1" sx={sx.description}>
+                {product.description}
+              </Typography>
 
-            <Box
-              sx={sx.orderNow}
-              component={motion.div}
-              variants={bestSellingProductsVariant}
-              animate={orderNowControls}
-              initial="hidden"
-            >
-              <CardActionArea>
+              <Box
+                sx={sx.orderNow}
+                component={motion.div}
+                variants={bestSellingProductsVariant}
+                animate={orderNowControls}
+                initial="hidden"
+              >
                 <Typography variant="h5" paragraph>
                   Order Now!
                 </Typography>
                 <ArrowForwardIcon fontSize="large" />
-              </CardActionArea>
+              </Box>
             </Box>
           </Box>
-        </Box>
+        </CardActionArea>
       </Box>
     </Grid>
   )

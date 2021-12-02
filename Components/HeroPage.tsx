@@ -11,6 +11,8 @@ import {
   heroButtonVariant
 } from '../animations/heroButton'
 import { heroHeadingVariant } from '../animations/heroHeading'
+import { heroImageVariant, imageShadowVariant } from '../animations/heroImage'
+import { marquee } from '../animations/marquee'
 import StyledButton from './StyledComponents/StyledButton'
 import BlackBoxBackground from './UtilityComponents/BlackBoxBackground'
 
@@ -31,9 +33,16 @@ const sx: SxProps = {
   },
   imageCtnInner: {
     position: 'relative',
-    boxShadow: { xs: '15px 15px #D7A55B', sm: '30px 30px #D7A55B' },
     width: { xs: 150, sm: 225, md: 360 },
     height: { xs: 260, sm: 390, md: 624 }
+  },
+  imageShadow: {
+    position: 'absolute',
+    top: 20,
+    left: 20,
+    width: 1,
+    height: 1,
+    backgroundColor: 'primary.main'
   },
   textCtnOuter: {
     height: { xs: 0.6, sm: 1 },
@@ -116,8 +125,23 @@ const headingWord = `Have\u00a0a\u00a0break.`.split('')
 const HeroPage = () => {
   return (
     <Box sx={sx.root} component="section">
+      <BlackBoxBackground />
+      <Box sx={sx.background} />
+
       <Box sx={sx.imageCtnOuter}>
-        <Box sx={sx.imageCtnInner}>
+        <Box
+          sx={sx.imageCtnInner}
+          component={motion.div}
+          variants={heroImageVariant}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+        >
+          <Box
+            sx={sx.imageShadow}
+            component={motion.div}
+            variants={imageShadowVariant}
+          />
           <Image
             src="https://i.ibb.co/nsxfsvB/hero-page-image-small.jpg"
             alt="hero-page-image-small"
@@ -135,7 +159,8 @@ const HeroPage = () => {
             component={motion.div}
             variants={heroHeadingVariant}
             initial="hidden"
-            animate="show"
+            whileInView="show"
+            viewport={{ once: true }}
           >
             {headingWord.map((letter, index) => (
               <Typography
@@ -165,7 +190,8 @@ const HeroPage = () => {
             component={motion.div}
             variants={heroButtonCtnVariant}
             initial="hidden"
-            animate="show"
+            whileInView="show"
+            viewport={{ once: true }}
           >
             <motion.div variants={heroButtonVariant}>
               <StyledButton size="large" color="primary" variant="contained">
@@ -183,7 +209,13 @@ const HeroPage = () => {
 
         <Box sx={sx.wordsCtn}>
           <List sx={sx.words}>
-            <ListItem sx={sx.listItem}>
+            <ListItem
+              sx={sx.listItem}
+              component={motion.li}
+              variants={marquee}
+              animate="animate"
+              initial="initial"
+            >
               <ListItemText primary="Refreshing" />
             </ListItem>
             <ListItem sx={sx.listItem}>
@@ -195,9 +227,6 @@ const HeroPage = () => {
           </List>
         </Box>
       </Box>
-
-      <BlackBoxBackground />
-      <Box sx={sx.background} />
     </Box>
   )
 }

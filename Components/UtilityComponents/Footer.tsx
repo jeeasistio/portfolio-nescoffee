@@ -7,7 +7,7 @@ const sx: SxProps = {
     p: 4,
     backgroundColor: 'secondary.main',
     color: 'common.white',
-    minHeight: '10vh'
+    minHeight: '12vh'
   }
 }
 

@@ -3,6 +3,8 @@ import Image from 'next/image'
 import { SxProps } from '@mui/system'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
+import { motion } from 'framer-motion'
+import { imageShadowVariant, letsDiscussVariant } from '../animations/heroImage'
 
 const sx: SxProps = {
   root: {
@@ -41,8 +43,15 @@ const sx: SxProps = {
   imageCtnInner: {
     position: 'relative',
     width: { xs: 0.5, sm: 0.4, md: 0.8, lg: 0.6 },
-    height: { xs: 300, sm: 400, lg: 500 },
-    boxShadow: { xs: '15px 15px #D7A55B', sm: '30px 30px #D7A55B' }
+    height: { xs: 300, sm: 400, lg: 500 }
+  },
+  imageShadow: {
+    position: 'absolute',
+    top: 20,
+    left: 20,
+    width: 1,
+    height: 1,
+    backgroundColor: 'primary.main'
   }
 }
 
@@ -66,7 +75,19 @@ const LetsDiscuss = () => {
       </Box>
 
       <Box sx={sx.imageCtn}>
-        <Box sx={sx.imageCtnInner}>
+        <Box
+          sx={sx.imageCtnInner}
+          component={motion.div}
+          variants={letsDiscussVariant}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+        >
+          <Box
+            sx={sx.imageShadow}
+            component={motion.div}
+            variants={imageShadowVariant}
+          />
           <Image
             src="https://i.ibb.co/ph46R46/coffee-with-telephone-small.jpg"
             alt="coffee-with-telephone-small"

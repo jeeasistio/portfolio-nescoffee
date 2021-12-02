@@ -1,7 +1,7 @@
 import ProductList from '../Components/ProductList'
 import Layout from '../Components/UtilityComponents/Layout'
-import ProductSearch from './../Components/ProductSearch'
-import { useGetProductsQuery } from './../graphql/generatedTypes'
+import ProductSearch from '../Components/ProductSearch'
+import { useGetProductsQuery } from '../graphql/generatedTypes'
 
 const Products = () => {
   const { data } = useGetProductsQuery()

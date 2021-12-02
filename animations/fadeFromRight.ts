@@ -1,9 +1,9 @@
 import { Variants } from 'framer-motion/types/types'
 
-export const bestSellingVariant: Variants = {
+export const fadeFromRight: Variants = {
   hidden: {
     opacity: 0,
-    x: -50
+    x: 50
   },
   show: {
     opacity: 1,
@@ -12,7 +12,7 @@ export const bestSellingVariant: Variants = {
       type: 'spring',
       stiffness: 200,
       damping: 45,
-      mass: 2
+      mass: 3
     }
   }
 }

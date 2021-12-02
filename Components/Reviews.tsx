@@ -3,6 +3,9 @@ import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import { SxProps } from '@mui/system'
 import Image from 'next/image'
+import { motion } from 'framer-motion'
+import { fadeFromLeft } from '../animations/fadeFromLeft'
+import { fadeFromRight } from '../animations/fadeFromRight'
 
 const sx: SxProps = {
   root: {
@@ -66,17 +69,33 @@ const sx: SxProps = {
 const Reviews = () => {
   return (
     <Grid container sx={sx.root}>
-      <Grid item xs={12} md={4} sx={sx.smileCtn}>
-        <Typography variant="h3">smile.</Typography>
-        <Typography variant="h3">breathe.</Typography>
-        <Typography variant="h3" paragraph>
-          and go slowly.
-        </Typography>
-        <Typography>- thich nhat hanh</Typography>
+      <Grid item xs={12} md={4}>
+        <Box
+          sx={sx.smileCtn}
+          component={motion.div}
+          variants={fadeFromLeft}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+        >
+          <Typography variant="h3">smile.</Typography>
+          <Typography variant="h3">breathe.</Typography>
+          <Typography variant="h3" paragraph>
+            and go slowly.
+          </Typography>
+          <Typography>- thich nhat hanh</Typography>
+        </Box>
       </Grid>
 
       <Grid item xs={10} sm={8} md={4} sx={sx.review1}>
-        <Box sx={sx.review1ImageCtn}>
+        <Box
+          sx={sx.review1ImageCtn}
+          component={motion.div}
+          variants={fadeFromRight}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+        >
           <Image
             src="https://i.ibb.co/Cm1PD1B/review-coffee-small.jpg"
             alt="review-coffee-small"
@@ -85,7 +104,14 @@ const Reviews = () => {
             priority
           />
         </Box>
-        <Box sx={sx.review1Text}>
+        <Box
+          sx={sx.review1Text}
+          component={motion.div}
+          variants={fadeFromLeft}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+        >
           <Typography variant="subtitle1" paragraph>
             “ Aliquam ac purus tortor. Mauris eleifend lectus nulla, egestas
             tincidunt dolor consequat. “
@@ -100,7 +126,14 @@ const Reviews = () => {
       </Grid>
 
       <Grid item xs={10} md={8} lg={6} sx={sx.review2}>
-        <Box sx={sx.review2ImageCtn}>
+        <Box
+          sx={sx.review2ImageCtn}
+          component={motion.div}
+          variants={fadeFromLeft}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+        >
           <Image
             src="https://i.ibb.co/QvcxNS6/review-coffee-small-1.jpg"
             alt="review-coffee-small-1"
@@ -109,7 +142,14 @@ const Reviews = () => {
             priority
           />
         </Box>
-        <Box sx={sx.review2Text}>
+        <Box
+          sx={sx.review2Text}
+          component={motion.div}
+          variants={fadeFromRight}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+        >
           <Typography variant="subtitle1" paragraph>
             “ Aliquam ac purus tortor. Mauris eleifend lectus nulla, egestas
             tincidunt dolor consequat. “
