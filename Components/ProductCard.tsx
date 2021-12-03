@@ -3,8 +3,10 @@ import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import { SxProps } from '@mui/system'
 import Image from 'next/image'
+import { fadeFromBottom } from '../animations/fadeFromBottom'
 import { Product } from '../graphql/generatedTypes'
 import StyledButton from './StyledComponents/StyledButton'
+import { m } from 'framer-motion'
 
 const sx: SxProps = {
   innerCtn: {
@@ -25,18 +27,29 @@ const sx: SxProps = {
     alignItems: 'center'
   },
   description: {
-    color: 'secondary.light'
+    color: 'secondary.light',
+    height: 100,
+    overflow: 'hidden'
   }
 }
 
 interface Props {
   product: Product
+  index: number
 }
 
-const ProductCard = ({ product }: Props) => {
+const ProductCard = ({ product, index }: Props) => {
   return (
     <Grid item xs={5.5} sm={4} md={3} lg={2}>
-      <Box sx={sx.innerCtn}>
+      <Box
+        sx={sx.innerCtn}
+        custom={index}
+        component={m.div}
+        variants={fadeFromBottom}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+      >
         <Box sx={sx.imageCtn}>
           <Image
             src="https://i.ibb.co/x1nHqbK/product-coffee-small.jpg"

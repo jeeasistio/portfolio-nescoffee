@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { SxProps } from '@mui/system'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { imageShadowVariant, letsDiscussVariant } from '../animations/heroImage'
 
 const sx: SxProps = {
@@ -77,7 +77,7 @@ const LetsDiscuss = () => {
       <Box sx={sx.imageCtn}>
         <Box
           sx={sx.imageCtnInner}
-          component={motion.div}
+          component={m.div}
           variants={letsDiscussVariant}
           initial="hidden"
           whileInView="show"
@@ -85,7 +85,7 @@ const LetsDiscuss = () => {
         >
           <Box
             sx={sx.imageShadow}
-            component={motion.div}
+            component={m.div}
             variants={imageShadowVariant}
           />
           <Image

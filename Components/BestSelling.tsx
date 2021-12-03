@@ -1,6 +1,6 @@
 import { SxProps } from '@mui/system'
 import BestSellingProduct from './BestSellingProduct'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { fadeFromLeft } from '../animations/fadeFromLeft'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
@@ -63,7 +63,7 @@ const BestSelling = () => {
     <Box sx={sx.root}>
       <Box
         sx={sx.bestSellingCtn}
-        component={motion.div}
+        component={m.div}
         variants={fadeFromLeft}
         initial="hidden"
         whileInView="show"

@@ -9,7 +9,7 @@ export const heroImageVariant: Variants = {
     y: 0,
     opacity: 1,
     transition: {
-      duration: 1,
+      duration: 0.5,
       type: 'spring',
       stiffness: 200,
       damping: 45,
@@ -29,7 +29,7 @@ export const letsDiscussVariant: Variants = {
     y: 0,
     opacity: 1,
     transition: {
-      duration: 1,
+      duration: 0.5,
       type: 'spring',
       stiffness: 200,
       damping: 45,
@@ -50,7 +50,7 @@ export const imageShadowVariant: Variants = {
     y: 0,
     opacity: 1,
     transition: {
-      duration: 1,
+      duration: 0.5,
       type: 'spring',
       stiffness: 200,
       damping: 45,

@@ -1,6 +1,6 @@
 import Box from '@mui/material/Box'
 import { SxProps } from '@mui/system'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { boxBackgroundVariant } from '../../animations/boxBackground'
 
 const sx: SxProps = {
@@ -20,7 +20,7 @@ const BlackBoxBackground = () => {
   return (
     <Box
       sx={sx.root}
-      component={motion.div}
+      component={m.div}
       variants={boxBackgroundVariant}
       initial="hidden"
       animate="show"

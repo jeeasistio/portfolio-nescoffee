@@ -3,7 +3,7 @@ import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import { SxProps } from '@mui/system'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { fadeFromLeft } from '../animations/fadeFromLeft'
 import { fadeFromRight } from '../animations/fadeFromRight'
 
@@ -72,7 +72,7 @@ const Reviews = () => {
       <Grid item xs={12} md={4}>
         <Box
           sx={sx.smileCtn}
-          component={motion.div}
+          component={m.div}
           variants={fadeFromLeft}
           initial="hidden"
           whileInView="show"
@@ -90,7 +90,7 @@ const Reviews = () => {
       <Grid item xs={10} sm={8} md={4} sx={sx.review1}>
         <Box
           sx={sx.review1ImageCtn}
-          component={motion.div}
+          component={m.div}
           variants={fadeFromRight}
           initial="hidden"
           whileInView="show"
@@ -106,7 +106,7 @@ const Reviews = () => {
         </Box>
         <Box
           sx={sx.review1Text}
-          component={motion.div}
+          component={m.div}
           variants={fadeFromLeft}
           initial="hidden"
           whileInView="show"
@@ -128,7 +128,7 @@ const Reviews = () => {
       <Grid item xs={10} md={8} lg={6} sx={sx.review2}>
         <Box
           sx={sx.review2ImageCtn}
-          component={motion.div}
+          component={m.div}
           variants={fadeFromLeft}
           initial="hidden"
           whileInView="show"
@@ -144,7 +144,7 @@ const Reviews = () => {
         </Box>
         <Box
           sx={sx.review2Text}
-          component={motion.div}
+          component={m.div}
           variants={fadeFromRight}
           initial="hidden"
           whileInView="show"

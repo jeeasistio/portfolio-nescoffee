@@ -4,6 +4,8 @@ import { ProductList } from '../graphql/generatedTypes'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import Grid from '@mui/material/Grid'
+import { m } from 'framer-motion'
+import { fadeFromLeft } from '../animations/fadeFromLeft'
 
 interface Props extends ProductList {}
 
@@ -30,12 +32,19 @@ const sx: SxProps = {
 const ProductList = ({ category, products }: Props) => {
   return (
     <Box sx={sx.root}>
-      <Box sx={sx.categoryCtn}>
+      <Box
+        sx={sx.categoryCtn}
+        component={m.div}
+        variants={fadeFromLeft}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+      >
         <Typography variant="h4">{category}</Typography>
       </Box>
       <Grid sx={sx.gridCtn} container>
         {products?.map((product, index) => (
-          <ProductCard key={index} product={product} />
+          <ProductCard key={index} index={index} product={product} />
         ))}
       </Grid>
     </Box>

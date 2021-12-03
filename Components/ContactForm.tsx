@@ -7,6 +7,11 @@ import MenuItem from '@mui/material/MenuItem'
 import StyledTextField from './StyledComponents/StyledTextField'
 import StyledSelectInputBase from './StyledComponents/StyledSelectInputBase'
 import StyledButton from './StyledComponents/StyledButton'
+import { m } from 'framer-motion'
+import {
+  contactFormCtnVariant,
+  contactFormVariant
+} from '../animations/contactForm'
 
 const sx: SxProps = {
   root: {
@@ -34,9 +39,21 @@ const sx: SxProps = {
 
 const ContactForm = () => {
   return (
-    <Box sx={sx.root}>
+    <Box
+      sx={sx.root}
+      component={m.div}
+      variants={contactFormCtnVariant}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true }}
+    >
       <Box sx={sx.headingCtn}>
-        <Typography variant="h3" paragraph>
+        <Typography
+          variant="h3"
+          paragraph
+          component={m.h3}
+          variants={contactFormVariant}
+        >
           Contact Form
         </Typography>
       </Box>

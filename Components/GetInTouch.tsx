@@ -10,6 +10,11 @@ import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
 import ListItemIcon from '@mui/material/ListItemIcon'
 import ListItemText from '@mui/material/ListItemText'
+import { m } from 'framer-motion'
+import {
+  getInTouchCtnVariant,
+  getInTouchVariant
+} from '../animations/getInTouch'
 
 const sx: SxProps = {
   root: {
@@ -20,6 +25,9 @@ const sx: SxProps = {
     color: 'common.white',
     width: { xs: 1, md: 0.5 },
     p: 4
+  },
+  headingCtn: {
+    overflow: 'hidden'
   },
   subheading: {
     color: 'grey.400'
@@ -41,9 +49,21 @@ const sx: SxProps = {
 
 const GetInTouch = () => {
   return (
-    <Box sx={sx.root}>
-      <Box>
-        <Typography variant="h3" paragraph>
+    <Box
+      sx={sx.root}
+      component={m.div}
+      variants={getInTouchCtnVariant}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true }}
+    >
+      <Box sx={sx.headingCtn}>
+        <Typography
+          variant="h3"
+          paragraph
+          component={m.h3}
+          variants={getInTouchVariant}
+        >
           We&apos;d love to hear from you
         </Typography>
         <Typography sx={sx.subheading}>

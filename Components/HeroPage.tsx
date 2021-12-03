@@ -4,7 +4,7 @@ import ListItem from '@mui/material/ListItem'
 import ListItemText from '@mui/material/ListItemText'
 import Typography from '@mui/material/Typography'
 import { SxProps } from '@mui/system'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import Image from 'next/image'
 import {
   heroButtonCtnVariant,
@@ -96,13 +96,26 @@ const sx: SxProps = {
     my: 3,
     zIndex: -1
   },
-  words: {
+  wordsInnerCtn: {
     width: { sm: 0.5 },
+    overflow: 'hidden',
+    position: 'relative'
+  },
+  words: {
+    display: 'flex',
+    justifyContent: 'space-evenly'
+  },
+  words2: {
+    width: '100%',
+    position: 'absolute',
+    right: '100%',
+    top: 0,
     display: 'flex',
     justifyContent: 'space-evenly'
   },
   listItem: {
-    textAlign: 'center'
+    textAlign: 'center',
+    whiteSpace: 'nowrap'
   },
   background: {
     display: { xs: 'none', md: 'block' },
@@ -120,7 +133,9 @@ const sx: SxProps = {
   }
 }
 
-const headingWord = `Have\u00a0a\u00a0break.`.split('')
+const headingWords = `Have\u00a0a\u00a0break.`.split('')
+
+const words = ['Refreshing', 'Clean', 'Pure Coffee', 'Creamy']
 
 const HeroPage = () => {
   return (
@@ -131,7 +146,7 @@ const HeroPage = () => {
       <Box sx={sx.imageCtnOuter}>
         <Box
           sx={sx.imageCtnInner}
-          component={motion.div}
+          component={m.div}
           variants={heroImageVariant}
           initial="hidden"
           whileInView="show"
@@ -139,7 +154,7 @@ const HeroPage = () => {
         >
           <Box
             sx={sx.imageShadow}
-            component={motion.div}
+            component={m.div}
             variants={imageShadowVariant}
           />
           <Image
@@ -156,21 +171,21 @@ const HeroPage = () => {
         <Box sx={sx.textCtnInner}>
           <Box
             sx={sx.headingCtn}
-            component={motion.div}
+            component={m.div}
             variants={heroHeadingVariant}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
           >
-            {headingWord.map((letter, index) => (
+            {headingWords.map((char, index) => (
               <Typography
                 sx={sx.heading}
-                component={motion.h2}
+                component={m.h2}
                 key={index}
                 variants={heroHeadingVariant}
                 variant="h2"
               >
-                {letter}
+                {char}
               </Typography>
             ))}
           </Box>
@@ -187,44 +202,55 @@ const HeroPage = () => {
 
           <Box
             sx={sx.buttonsCtn}
-            component={motion.div}
+            component={m.div}
             variants={heroButtonCtnVariant}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
           >
-            <motion.div variants={heroButtonVariant}>
+            <m.div variants={heroButtonVariant}>
               <StyledButton size="large" color="primary" variant="contained">
                 See our products
               </StyledButton>
-            </motion.div>
+            </m.div>
 
-            <motion.div variants={heroButtonVariant}>
+            <m.div variants={heroButtonVariant}>
               <StyledButton size="large" color="secondary" variant="contained">
                 Talk to us
               </StyledButton>
-            </motion.div>
+            </m.div>
           </Box>
         </Box>
 
         <Box sx={sx.wordsCtn}>
-          <List sx={sx.words}>
-            <ListItem
-              sx={sx.listItem}
-              component={motion.li}
+          <Box sx={sx.wordsInnerCtn}>
+            <List
+              sx={sx.words}
+              component={m.ul}
               variants={marquee}
               animate="animate"
               initial="initial"
             >
-              <ListItemText primary="Refreshing" />
-            </ListItem>
-            <ListItem sx={sx.listItem}>
-              <ListItemText primary="Pure Coffee" />
-            </ListItem>
-            <ListItem sx={sx.listItem}>
-              <ListItemText primary="Creamy" />
-            </ListItem>
-          </List>
+              {words.map((word, index) => (
+                <ListItem key={index} sx={sx.listItem}>
+                  <ListItemText primary={word} />
+                </ListItem>
+              ))}
+            </List>
+            <List
+              sx={sx.words2}
+              component={m.ul}
+              variants={marquee}
+              animate="animate"
+              initial="initial"
+            >
+              {words.map((word, index) => (
+                <ListItem key={index} sx={sx.listItem}>
+                  <ListItemText primary={word} />
+                </ListItem>
+              ))}
+            </List>
+          </Box>
         </Box>
       </Box>
     </Box>

@@ -9,7 +9,7 @@ import {
   bestSellingProductsVariant,
   imageVariant
 } from '../animations/bestSellingProducts'
-import { motion, useAnimation } from 'framer-motion'
+import { m, useAnimation } from 'framer-motion'
 
 interface Product {
   image: {
@@ -80,12 +80,12 @@ const BestSellingProduct = ({ product }: Props) => {
         <CardActionArea>
           <Box
             sx={sx.innerCtn}
-            component={motion.div}
+            component={m.div}
             onHoverStart={handleHover}
             onHoverEnd={handleNotHover}
           >
             <Box sx={sx.imageCtn}>
-              <motion.div
+              <m.div
                 variants={imageVariant}
                 animate={imageControls}
                 initial="normal"
@@ -97,7 +97,7 @@ const BestSellingProduct = ({ product }: Props) => {
                   width="80%"
                   height="100%"
                 />
-              </motion.div>
+              </m.div>
             </Box>
             <Box sx={sx.textCtn}>
               <Typography variant="h4" paragraph>
@@ -109,7 +109,7 @@ const BestSellingProduct = ({ product }: Props) => {
 
               <Box
                 sx={sx.orderNow}
-                component={motion.div}
+                component={m.div}
                 variants={bestSellingProductsVariant}
                 animate={orderNowControls}
                 initial="hidden"
