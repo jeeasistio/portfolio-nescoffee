@@ -1,47 +1,67 @@
-import { Box, FormControl, MenuItem, Select, Typography } from '@mui/material'
 import { SxProps } from '@mui/system'
-import StyledSelectInputBase from './StyledComponents/StyledSelectInputBase'
+import Box from '@mui/material/Box'
+import Typography from '@mui/material/Typography'
+import FormControl from '@mui/material/FormControl'
+import Select from '@mui/material/Select'
+import MenuItem from '@mui/material/MenuItem'
 import StyledTextField from './StyledComponents/StyledTextField'
+import StyledSelectInputBase from './StyledComponents/StyledSelectInputBase'
 import StyledButton from './StyledComponents/StyledButton'
+import { m } from 'framer-motion'
+import {
+  contactFormCtnVariant,
+  contactFormVariant
+} from '../animations/contactForm'
 
-const root: SxProps = {
-  width: { xs: 1, md: 0.5 },
-  p: 4,
-  border: 2,
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center'
-}
-
-const form: SxProps = {
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'space-evenly',
-  gap: 4
-}
-
-const headingCtn: SxProps = {
-  color: 'primary.main'
-}
-
-const selectFields: SxProps = {
-  display: 'flex',
-  gap: 2
+const sx: SxProps = {
+  root: {
+    width: { xs: 1, md: 0.5 },
+    p: 4,
+    border: 2,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center'
+  },
+  form: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-evenly',
+    gap: 3
+  },
+  headingCtn: {
+    color: 'primary.main'
+  },
+  selectFields: {
+    display: 'flex',
+    gap: 2
+  }
 }
 
 const ContactForm = () => {
   return (
-    <Box sx={root}>
-      <Box sx={headingCtn}>
-        <Typography variant="h5" paragraph>
+    <Box
+      sx={sx.root}
+      component={m.div}
+      variants={contactFormCtnVariant}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true }}
+    >
+      <Box sx={sx.headingCtn}>
+        <Typography
+          variant="h3"
+          paragraph
+          component={m.h3}
+          variants={contactFormVariant}
+        >
           Contact Form
         </Typography>
       </Box>
 
-      <Box sx={form}>
-        <StyledTextField variant="outlined" label="Name" size="small" />
-        <StyledTextField variant="outlined" label="Email" size="small" />
-        <Box sx={selectFields}>
+      <Box sx={sx.form}>
+        <StyledTextField variant="outlined" label="Name" />
+        <StyledTextField variant="outlined" label="Email" />
+        <Box sx={sx.selectFields}>
           <FormControl variant="standard" fullWidth>
             <Select
               id="flavor-select"
@@ -69,12 +89,7 @@ const ContactForm = () => {
             </Select>
           </FormControl>
         </Box>
-        <StyledTextField
-          multiline
-          variant="outlined"
-          label="Description..."
-          size="small"
-        />
+        <StyledTextField multiline variant="outlined" label="Description..." />
         <StyledButton variant="contained">Send Email</StyledButton>
       </Box>
     </Box>

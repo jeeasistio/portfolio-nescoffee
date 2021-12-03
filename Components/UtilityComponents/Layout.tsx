@@ -1,7 +1,8 @@
 import Header from './Header'
 import Main from './Main'
 import Footer from './Footer'
-import { Breakpoint, Container } from '@mui/material'
+import Container from '@mui/material/Container'
+import { Breakpoint } from '@mui/material/styles'
 
 interface Props {
   children: React.ReactNode

@@ -1,21 +1,28 @@
-import { Variants } from 'framer-motion'
+import { Variants } from 'framer-motion/types/types'
+
+export const heroButtonCtnVariant: Variants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.5
+    }
+  }
+}
 
 export const heroButtonVariant: Variants = {
   hidden: {
     opacity: 0,
-    scaleX: 0.1,
-    originX: 0
+    x: -40
   },
   show: {
     opacity: 1,
-    scaleX: 1,
+    x: 0,
     transition: {
       duration: 2,
       type: 'spring',
       stiffness: 200,
       damping: 45,
-      mass: 3,
-      staggerChildren: 1
+      mass: 3
     }
   }
 }

@@ -1,18 +1,19 @@
 import { Variants } from 'framer-motion/types/types'
 
-export const heroHeadingVariant: Variants = {
+export const fadeFromBottom: Variants = {
   hidden: {
-    y: 80
+    opacity: 0,
+    y: 50
   },
-  show: {
+  show: (i) => ({
+    opacity: 1,
     y: 0,
     transition: {
-      duration: 0.3,
+      delay: i * 0.03,
       type: 'spring',
       stiffness: 200,
       damping: 45,
-      mass: 3,
-      staggerChildren: 0.05
+      mass: 3
     }
-  }
+  })
 }

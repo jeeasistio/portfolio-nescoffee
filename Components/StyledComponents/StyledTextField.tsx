@@ -1,5 +1,6 @@
-import { StyledComponent } from '@emotion/styled'
-import { TextField, styled, OutlinedTextFieldProps, Theme } from '@mui/material'
+import { StyledComponent } from '@emotion/styled/types/base'
+import { styled, Theme } from '@mui/material/styles'
+import TextField, { OutlinedTextFieldProps } from '@mui/material/TextField'
 import { MUIStyledCommonProps } from '@mui/system'
 
 const StyledTextField = styled(TextField)(({ theme }) => ({

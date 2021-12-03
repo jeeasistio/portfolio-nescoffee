@@ -1,43 +1,56 @@
-import { Box, Grid, Typography } from '@mui/material'
+import Box from '@mui/material/Box'
+import Grid from '@mui/material/Grid'
+import Typography from '@mui/material/Typography'
 import { SxProps } from '@mui/system'
 import Image from 'next/image'
+import { fadeFromBottom } from '../animations/fadeFromBottom'
 import { Product } from '../graphql/generatedTypes'
 import StyledButton from './StyledComponents/StyledButton'
+import { m } from 'framer-motion'
 
-const innerCtn = {
-  backgroundColor: 'primary.main',
-  color: 'secondary.main',
-  border: 4,
-  boxShadow: 1
-}
-
-const imageCtn: SxProps = {
-  p: 0.2
-}
-
-const textCtn: SxProps = {
-  p: 1
-}
-
-const textActions: SxProps = {
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'center'
-}
-
-const description: SxProps = {
-  color: 'secondary.light'
+const sx: SxProps = {
+  innerCtn: {
+    backgroundColor: 'primary.main',
+    color: 'secondary.main',
+    border: 4,
+    boxShadow: 1
+  },
+  imageCtn: {
+    p: 0.2
+  },
+  textCtn: {
+    p: 1
+  },
+  textActions: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  },
+  description: {
+    color: 'secondary.light',
+    height: 100,
+    overflow: 'hidden'
+  }
 }
 
 interface Props {
   product: Product
+  index: number
 }
 
-const ProductCard = ({ product }: Props) => {
+const ProductCard = ({ product, index }: Props) => {
   return (
-    <Grid item xs={5.5 as 5} sm={4} md={3} lg={2}>
-      <Box sx={innerCtn}>
-        <Box sx={imageCtn}>
+    <Grid item xs={5.5} sm={4} md={3} lg={2}>
+      <Box
+        sx={sx.innerCtn}
+        custom={index}
+        component={m.div}
+        variants={fadeFromBottom}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+      >
+        <Box sx={sx.imageCtn}>
           <Image
             src="https://i.ibb.co/x1nHqbK/product-coffee-small.jpg"
             alt="product-coffee-small"
@@ -47,12 +60,12 @@ const ProductCard = ({ product }: Props) => {
             height={100}
           />
         </Box>
-        <Box sx={textCtn}>
+        <Box sx={sx.textCtn}>
           <Typography variant="h6">{product.name}</Typography>
-          <Typography sx={description} variant="body2" paragraph>
+          <Typography sx={sx.description} paragraph>
             {product.description}
           </Typography>
-          <Box sx={textActions}>
+          <Box sx={sx.textActions}>
             <StyledButton variant="contained" color="secondary" size="small">
               Order
             </StyledButton>

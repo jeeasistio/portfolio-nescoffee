@@ -1,18 +1,18 @@
 import { Variants } from 'framer-motion/types/types'
 
-export const heroHeadingVariant: Variants = {
+export const fadeFromRight: Variants = {
   hidden: {
-    y: 80
+    opacity: 0,
+    x: 50
   },
   show: {
-    y: 0,
+    opacity: 1,
+    x: 0,
     transition: {
-      duration: 0.3,
       type: 'spring',
       stiffness: 200,
       damping: 45,
-      mass: 3,
-      staggerChildren: 0.05
+      mass: 3
     }
   }
 }

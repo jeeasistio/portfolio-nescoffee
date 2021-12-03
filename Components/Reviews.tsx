@@ -1,85 +1,101 @@
-import { Box, Grid, Typography } from '@mui/material'
+import Grid from '@mui/material/Grid'
+import Box from '@mui/material/Box'
+import Typography from '@mui/material/Typography'
 import { SxProps } from '@mui/system'
 import Image from 'next/image'
+import { m } from 'framer-motion'
+import { fadeFromLeft } from '../animations/fadeFromLeft'
+import { fadeFromRight } from '../animations/fadeFromRight'
 
-const root: SxProps = {
-  display: 'flex',
-  flexDirection: { xs: 'column', md: 'row' },
-  justifyContent: { xs: 'center', md: 'space-between' },
-  alignItems: 'center',
-  gap: 2,
-  my: 12,
-  p: 1
-}
-
-const smileCtn: SxProps = {
-  backgroundColor: 'secondary.main',
-  color: 'common.white',
-  p: 4
-}
-
-const review1: SxProps = {
-  position: 'relative',
-  width: 1,
-  alignSelf: 'flex-end'
-}
-
-const review1ImageCtn: SxProps = {
-  position: 'relative',
-  width: 1,
-  height: { xs: 500, lg: 700 }
-}
-
-const review1Text: SxProps = {
-  position: 'absolute',
-  top: '5%',
-  left: { xs: '-20%', sm: '-50%' },
-  right: { xs: '70%', md: '80%' },
-  backgroundColor: 'primary.main',
-  color: 'primary.contrastText',
-  zIndex: 1,
-  p: 2,
-  boxShadow: 1
-}
-
-const review2: SxProps = {
-  position: 'relative',
-  width: 1,
-  alignSelf: 'flex-start'
-}
-
-const review2ImageCtn: SxProps = {
-  position: 'relative',
-  width: 1,
-  height: 400
-}
-
-const review2Text: SxProps = {
-  position: 'absolute',
-  bottom: { xs: '-5%' },
-  right: '-20%',
-  left: '70%',
-  backgroundColor: 'primary.main',
-  color: 'primary.contrastText',
-  zIndex: 1,
-  p: 2,
-  boxShadow: 1
+const sx: SxProps = {
+  root: {
+    display: 'flex',
+    flexDirection: { xs: 'column', md: 'row' },
+    justifyContent: { xs: 'center', md: 'space-between' },
+    alignItems: 'center',
+    gap: 2,
+    my: 12,
+    p: 1
+  },
+  smileCtn: {
+    backgroundColor: 'secondary.main',
+    color: 'common.white',
+    p: 4
+  },
+  review1: {
+    position: 'relative',
+    width: 1,
+    alignSelf: 'flex-end'
+  },
+  review1ImageCtn: {
+    position: 'relative',
+    width: 1,
+    height: { xs: 500, lg: 700 }
+  },
+  review1Text: {
+    position: 'absolute',
+    top: '5%',
+    left: { xs: '-20%', sm: '-50%' },
+    right: { xs: '70%', md: '80%' },
+    backgroundColor: 'primary.main',
+    color: 'primary.contrastText',
+    zIndex: 1,
+    p: 2,
+    boxShadow: 1
+  },
+  review2: {
+    position: 'relative',
+    width: 1,
+    alignSelf: 'flex-start'
+  },
+  review2ImageCtn: {
+    position: 'relative',
+    width: 1,
+    height: 400
+  },
+  review2Text: {
+    position: 'absolute',
+    bottom: { xs: '-5%' },
+    right: '-20%',
+    left: '70%',
+    backgroundColor: 'primary.main',
+    color: 'primary.contrastText',
+    zIndex: 1,
+    p: 2,
+    boxShadow: 1
+  }
 }
 
 const Reviews = () => {
   return (
-    <Grid container sx={root}>
-      <Grid item xs={12} md={4} sx={smileCtn}>
-        <Typography variant="h4">smile.</Typography>
-        <Typography variant="h4">breathe.</Typography>
-        <Typography variant="h4" paragraph>
-          and go slowly.
-        </Typography>
-        <Typography>- thich nhat hanh</Typography>
+    <Grid container sx={sx.root}>
+      <Grid item xs={12} md={4}>
+        <Box
+          sx={sx.smileCtn}
+          component={m.div}
+          variants={fadeFromLeft}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+        >
+          <Typography variant="h3">smile.</Typography>
+          <Typography variant="h3">breathe.</Typography>
+          <Typography variant="h3" paragraph>
+            and go slowly.
+          </Typography>
+          <Typography>- thich nhat hanh</Typography>
+        </Box>
       </Grid>
 
-      <Grid item xs={10} sm={8} md={4} sx={review1}>
-        <Box sx={review1ImageCtn}>
+      <Grid item xs={10} sm={8} md={4} sx={sx.review1}>
+        <Box
+          sx={sx.review1ImageCtn}
+          component={m.div}
+          variants={fadeFromRight}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+        >
           <Image
             src="https://i.ibb.co/Cm1PD1B/review-coffee-small.jpg"
             alt="review-coffee-small"
@@ -88,22 +104,36 @@ const Reviews = () => {
             priority
           />
         </Box>
-        <Box sx={review1Text}>
-          <Typography paragraph>
+        <Box
+          sx={sx.review1Text}
+          component={m.div}
+          variants={fadeFromLeft}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+        >
+          <Typography variant="subtitle1" paragraph>
             “ Aliquam ac purus tortor. Mauris eleifend lectus nulla, egestas
             tincidunt dolor consequat. “
           </Typography>
-          <Typography variant="subtitle2" align="right">
+          <Typography align="right" fontWeight="medium">
             Diana
           </Typography>
-          <Typography variant="body2" align="right">
+          <Typography align="right" variant="subtitle2">
             - Coffee Lover
           </Typography>
         </Box>
       </Grid>
 
-      <Grid item xs={10} md={8} lg={6} sx={review2}>
-        <Box sx={review2ImageCtn}>
+      <Grid item xs={10} md={8} lg={6} sx={sx.review2}>
+        <Box
+          sx={sx.review2ImageCtn}
+          component={m.div}
+          variants={fadeFromLeft}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+        >
           <Image
             src="https://i.ibb.co/QvcxNS6/review-coffee-small-1.jpg"
             alt="review-coffee-small-1"
@@ -112,15 +142,22 @@ const Reviews = () => {
             priority
           />
         </Box>
-        <Box sx={review2Text}>
-          <Typography paragraph>
+        <Box
+          sx={sx.review2Text}
+          component={m.div}
+          variants={fadeFromRight}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+        >
+          <Typography variant="subtitle1" paragraph>
             “ Aliquam ac purus tortor. Mauris eleifend lectus nulla, egestas
             tincidunt dolor consequat. “
           </Typography>
-          <Typography variant="subtitle2" align="right">
+          <Typography align="right" fontWeight="medium">
             Anna
           </Typography>
-          <Typography variant="body2" align="right">
+          <Typography align="right" variant="subtitle2">
             - Artist
           </Typography>
         </Box>

@@ -1,8 +1,9 @@
-import { InputBase, styled } from '@mui/material'
+import InputBase from '@mui/material/InputBase'
+import { styled } from '@mui/material/styles'
 
 const StyledSelectInputBase = styled(InputBase)(({ theme }) => ({
   '& .MuiInputBase-input': {
-    padding: theme.spacing(1, 2),
+    padding: theme.spacing(2),
     borderRadius: 0,
     background: theme.palette.secondary.main,
     color: theme.palette.primary.light,

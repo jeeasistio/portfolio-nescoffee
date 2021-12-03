@@ -1,17 +1,19 @@
-import { Box } from '@mui/material'
+import Box from '@mui/material/Box'
 import { SxProps } from '@mui/system'
 import Copyright from './Copyright'
 
-const root: SxProps = {
-  p: 4,
-  backgroundColor: 'secondary.main',
-  color: 'common.white',
-  minHeight: '10vh'
+const sx: SxProps = {
+  root: {
+    p: 4,
+    backgroundColor: 'secondary.main',
+    color: 'common.white',
+    minHeight: '12vh'
+  }
 }
 
 const Footer = () => {
   return (
-    <Box component="footer" sx={root}>
+    <Box component="footer" sx={sx.root}>
       <Copyright />
     </Box>
   )

@@ -1,5 +1,5 @@
 import { model, models, Schema } from 'mongoose'
-import Product from './../interfaces/Product'
+import { Product } from '../graphql/generatedTypes'
 
 const productSchema = new Schema<Product>({
   name: { type: String, required: true },
