@@ -10,7 +10,6 @@ import { useState } from 'react'
 import { SelectChangeEvent } from '@mui/material/Select'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
-import { AnimatePresence, m } from 'framer-motion'
 
 const Products = () => {
   const [query, setQuery] = useState<GetProductsQueryArgs>({
@@ -60,7 +59,7 @@ const Products = () => {
       )}
 
       {loading && (
-        <Box component={m.div} layout>
+        <Box>
           <Typography variant="h4" fontWeight="bold">
             Loading...
           </Typography>
