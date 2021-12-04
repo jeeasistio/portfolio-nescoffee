@@ -12,8 +12,7 @@ export const getInTouchCtnVariant: Variants = {
       type: 'spring',
       stiffness: 200,
       damping: 45,
-      mass: 3,
-      when: 'beforeChildren'
+      mass: 3
     }
   }
 }
@@ -30,7 +29,8 @@ export const getInTouchVariant: Variants = {
       type: 'spring',
       stiffness: 200,
       damping: 45,
-      mass: 3
+      mass: 3,
+      delay: 0.2
     }
   }
 }

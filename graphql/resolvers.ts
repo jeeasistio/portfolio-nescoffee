@@ -3,8 +3,8 @@ import { Resolvers } from './generatedTypes'
 
 const resolvers: Resolvers = {
   Query: {
-    getProducts() {
-      return getProducts().then((productList) => productList)
+    getProducts(_parent, args) {
+      return getProducts(args.query).then((productList) => productList)
     }
   }
 }

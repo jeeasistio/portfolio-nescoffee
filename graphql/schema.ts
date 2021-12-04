@@ -17,8 +17,13 @@ const typeDefs = gql`
     products: [Product!]
   }
 
+  input GetProductsQueryArgs {
+    name: String!
+    category: String!
+  }
+
   type Query {
-    getProducts: [ProductList!]
+    getProducts(query: GetProductsQueryArgs!): [ProductList!]
   }
 `
 export default typeDefs

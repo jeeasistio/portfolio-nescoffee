@@ -10,7 +10,7 @@ import StyledButton from './StyledComponents/StyledButton'
 import { m } from 'framer-motion'
 import {
   contactFormCtnVariant,
-  contactFormVariant
+  contactFormBtnVariant
 } from '../animations/contactForm'
 
 const sx: SxProps = {
@@ -48,12 +48,7 @@ const ContactForm = () => {
       viewport={{ once: true }}
     >
       <Box sx={sx.headingCtn}>
-        <Typography
-          variant="h3"
-          paragraph
-          component={m.h3}
-          variants={contactFormVariant}
-        >
+        <Typography variant="h3" paragraph>
           Contact Form
         </Typography>
       </Box>
@@ -90,7 +85,11 @@ const ContactForm = () => {
           </FormControl>
         </Box>
         <StyledTextField multiline variant="outlined" label="Description..." />
-        <StyledButton variant="contained">Send Email</StyledButton>
+        <m.div variants={contactFormBtnVariant}>
+          <StyledButton fullWidth variant="contained">
+            Send Email
+          </StyledButton>
+        </m.div>
       </Box>
     </Box>
   )

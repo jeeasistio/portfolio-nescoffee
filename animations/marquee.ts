@@ -7,7 +7,7 @@ export const marquee: Variants = {
   animate: {
     x: 0,
     transition: {
-      duration: 10,
+      duration: 12,
       ease: 'linear',
       repeat: Infinity
     }

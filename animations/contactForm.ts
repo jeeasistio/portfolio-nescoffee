@@ -13,12 +13,12 @@ export const contactFormCtnVariant: Variants = {
       stiffness: 200,
       damping: 45,
       mass: 3,
-      when: 'beforeChildren'
+      delay: 0.6
     }
   }
 }
 
-export const contactFormVariant: Variants = {
+export const contactFormBtnVariant: Variants = {
   hidden: {
     opacity: 0,
     x: -50
@@ -30,7 +30,8 @@ export const contactFormVariant: Variants = {
       type: 'spring',
       stiffness: 200,
       damping: 45,
-      mass: 3
+      mass: 3,
+      delay: 1
     }
   }
 }

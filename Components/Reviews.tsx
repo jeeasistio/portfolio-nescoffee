@@ -15,7 +15,8 @@ const sx: SxProps = {
     alignItems: 'center',
     gap: 2,
     my: 12,
-    p: 1
+    p: 1,
+    overflow: 'hidden'
   },
   smileCtn: {
     backgroundColor: 'secondary.main',
