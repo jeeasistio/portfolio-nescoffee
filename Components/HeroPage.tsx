@@ -250,7 +250,6 @@ const HeroPage = () => {
               component={m.ul}
               variants={marquee}
               animate="animate"
-              initial="initial"
             >
               {words.map((word, index) => (
                 <ListItem key={index} sx={sx.listItem}>

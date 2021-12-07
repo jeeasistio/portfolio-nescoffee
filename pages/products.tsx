@@ -8,8 +8,11 @@ import {
 } from '../graphql/generatedTypes'
 import { useState } from 'react'
 import { SelectChangeEvent } from '@mui/material/Select'
-import Box from '@mui/material/Box'
-import Typography from '@mui/material/Typography'
+import LoadingLine from '../Components/LoadingLine'
+import ErrorMessage from '../Components/ErrorMessage'
+import { GetStaticProps } from 'next'
+import { getProducts } from '../models/mongoDbQueries'
+import { connection, connect } from 'mongoose'
 
 const Products = () => {
   const [query, setQuery] = useState<GetProductsQueryArgs>({
@@ -52,19 +55,9 @@ const Products = () => {
         handleSearch={handleSearch}
       />
 
-      {error && (
-        <Box>
-          <Typography>Something went wrong</Typography>
-        </Box>
-      )}
+      {error && <ErrorMessage />}
 
-      {loading && (
-        <Box>
-          <Typography variant="h4" fontWeight="bold">
-            Loading...
-          </Typography>
-        </Box>
-      )}
+      {loading && <LoadingLine />}
 
       {allProducts?.map((cat, index) => (
         <ProductList
@@ -75,6 +68,19 @@ const Products = () => {
       ))}
     </Layout>
   )
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  const productList = await getProducts({ name: '', category: 'All' })
+
+  if (connection.readyState < 1) {
+    await connect(process.env.MONGO_URI)
+  }
+
+  return {
+    props: { productList: JSON.stringify(productList) },
+    revalidate: 10
+  }
 }
 
 export default Products

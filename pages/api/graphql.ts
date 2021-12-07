@@ -23,7 +23,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  if (connection.readyState >= 1 === false) {
+  if (connection.readyState < 1) {
     await connect(process.env.MONGO_URI)
   }
   await serverStart
