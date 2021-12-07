@@ -14,7 +14,11 @@ import { GetStaticProps } from 'next'
 import { getProducts } from '../models/mongoDbQueries'
 import { connection, connect } from 'mongoose'
 
-const Products = () => {
+interface Props {
+  productList: string
+}
+
+const Products = ({ productList }: Props) => {
   const [query, setQuery] = useState<GetProductsQueryArgs>({
     name: '',
     category: 'All'
@@ -22,7 +26,7 @@ const Products = () => {
   const [vars, setVars] = useState(query)
   const [allProducts, setAllProducts] = useState<
     IProductList[] | undefined | null
-  >([])
+  >(JSON.parse(productList))
 
   const { loading, error } = useGetProductsQuery({
     variables: { query: vars },
@@ -71,11 +75,11 @@ const Products = () => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const productList = await getProducts({ name: '', category: 'All' })
-
   if (connection.readyState < 1) {
     await connect(process.env.MONGO_URI)
   }
+
+  const productList = await getProducts({ name: '', category: 'All' })
 
   return {
     props: { productList: JSON.stringify(productList) },
