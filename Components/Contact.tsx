@@ -6,7 +6,7 @@ import Box from '@mui/material/Box'
 const sx: SxProps = {
   root: {
     display: 'flex',
-    flexDirection: { xs: 'column-reverse', md: 'row' },
+    flexDirection: { xs: 'column', md: 'row-reverse' },
     gap: 2,
     p: 2,
     width: 1,
@@ -17,8 +17,8 @@ const sx: SxProps = {
 const Contact = () => {
   return (
     <Box sx={sx.root}>
-      <GetInTouch />
       <ContactForm />
+      <GetInTouch />
     </Box>
   )
 }

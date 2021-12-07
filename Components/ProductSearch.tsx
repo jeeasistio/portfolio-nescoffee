@@ -3,8 +3,10 @@ import StyledSelectInputBase from './StyledComponents/StyledSelectInputBase'
 import { SxProps } from '@mui/system'
 import Box from '@mui/material/Box'
 import FormControl from '@mui/material/FormControl'
-import Select from '@mui/material/Select'
+import Select, { SelectChangeEvent } from '@mui/material/Select'
 import MenuItem from '@mui/material/MenuItem'
+import { GetProductsQueryArgs } from '../graphql/generatedTypes'
+import StyledButton from './StyledComponents/StyledButton'
 
 const sx: SxProps = {
   root: {
@@ -15,25 +17,49 @@ const sx: SxProps = {
   }
 }
 
-const ProductSearch = () => {
+interface Props {
+  handleName(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void
+  handleCategory(e: SelectChangeEvent<string>): void
+  handleSearch(): void
+  query: GetProductsQueryArgs
+}
+
+const ProductSearch = ({
+  query,
+  handleName,
+  handleCategory,
+  handleSearch
+}: Props) => {
   return (
     <Box sx={sx.root}>
       <Box>
-        <StyledTextField variant="outlined" label="Search products..." />
+        <StyledTextField
+          variant="outlined"
+          label="Search products..."
+          value={query.name}
+          onChange={handleName}
+        />
       </Box>
+
       <Box>
         <FormControl variant="standard">
           <Select
             id="flavor-select"
-            value="1"
+            value={query.category}
             input={<StyledSelectInputBase />}
+            onChange={handleCategory}
           >
-            <MenuItem value="1" selected={true}>
-              Coffee
-            </MenuItem>
-            <MenuItem value="2">Tea</MenuItem>
+            <MenuItem value="All">All</MenuItem>
+            <MenuItem value="Coffee">Coffee</MenuItem>
+            <MenuItem value="Tea">Tea</MenuItem>
           </Select>
         </FormControl>
+      </Box>
+
+      <Box>
+        <StyledButton variant="contained" size="large" onClick={handleSearch}>
+          Search
+        </StyledButton>
       </Box>
     </Box>
   )

@@ -1,8 +1,8 @@
 import { gql } from 'apollo-server-micro'
 
 export const GET_PRODUCTS = gql`
-  query GetProducts {
-    getProducts {
+  query GetProducts($query: GetProductsQueryArgs!) {
+    getProducts(query: $query) {
       category
       products {
         _id

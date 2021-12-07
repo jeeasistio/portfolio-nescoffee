@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography'
 import { SxProps } from '@mui/system'
 import { m } from 'framer-motion'
 import Image from 'next/image'
+import Link from 'next/link'
 import {
   heroButtonCtnVariant,
   heroButtonVariant
@@ -92,7 +93,6 @@ const sx: SxProps = {
     backgroundColor: 'secondary.main',
     color: 'grey.400',
     width: '100vw',
-    py: 0.5,
     my: 3,
     zIndex: -1
   },
@@ -135,7 +135,7 @@ const sx: SxProps = {
 
 const headingWords = `Have\u00a0a\u00a0break.`.split('')
 
-const words = ['Refreshing', 'Clean', 'Pure Coffee', 'Creamy']
+const words = ['Refreshing', 'Pure Coffee', 'Creamy']
 
 const HeroPage = () => {
   return (
@@ -209,15 +209,23 @@ const HeroPage = () => {
             viewport={{ once: true }}
           >
             <m.div variants={heroButtonVariant}>
-              <StyledButton size="large" color="primary" variant="contained">
-                See our products
-              </StyledButton>
+              <Link href="/products" passHref>
+                <StyledButton size="large" color="primary" variant="contained">
+                  See our products
+                </StyledButton>
+              </Link>
             </m.div>
 
             <m.div variants={heroButtonVariant}>
-              <StyledButton size="large" color="secondary" variant="contained">
-                Talk to us
-              </StyledButton>
+              <Link href="/contacts" passHref>
+                <StyledButton
+                  size="large"
+                  color="secondary"
+                  variant="contained"
+                >
+                  Talk to us
+                </StyledButton>
+              </Link>
             </m.div>
           </Box>
         </Box>
@@ -242,7 +250,6 @@ const HeroPage = () => {
               component={m.ul}
               variants={marquee}
               animate="animate"
-              initial="initial"
             >
               {words.map((word, index) => (
                 <ListItem key={index} sx={sx.listItem}>

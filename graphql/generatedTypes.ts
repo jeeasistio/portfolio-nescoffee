@@ -6,6 +6,7 @@ export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
+export type RequireFields<T, K extends keyof T> = { [X in Exclude<keyof T, K>]?: T[X] } & { [P in K]-?: NonNullable<T[P]> };
 const defaultOptions =  {}
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
@@ -14,6 +15,11 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
+};
+
+export type GetProductsQueryArgs = {
+  category: Scalars['String'];
+  name: Scalars['String'];
 };
 
 export type Product = {
@@ -39,7 +45,14 @@ export type Query = {
   getProducts?: Maybe<Array<ProductList>>;
 };
 
-export type GetProductsQueryVariables = Exact<{ [key: string]: never; }>;
+
+export type QueryGetProductsArgs = {
+  query: GetProductsQueryArgs;
+};
+
+export type GetProductsQueryVariables = Exact<{
+  query: GetProductsQueryArgs;
+}>;
 
 
 export type GetProductsQuery = { __typename?: 'Query', getProducts?: Array<{ __typename?: 'ProductList', category: string, products?: Array<{ __typename?: 'Product', _id: string, name: string, description: string, image: string, alt: string, price: number, category: string, available: boolean }> | null | undefined }> | null | undefined };
@@ -114,6 +127,7 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = {
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
+  GetProductsQueryArgs: GetProductsQueryArgs;
   ID: ResolverTypeWrapper<Scalars['ID']>;
   Int: ResolverTypeWrapper<Scalars['Int']>;
   Product: ResolverTypeWrapper<Product>;
@@ -125,6 +139,7 @@ export type ResolversTypes = {
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = {
   Boolean: Scalars['Boolean'];
+  GetProductsQueryArgs: GetProductsQueryArgs;
   ID: Scalars['ID'];
   Int: Scalars['Int'];
   Product: Product;
@@ -152,7 +167,7 @@ export type ProductListResolvers<ContextType = any, ParentType extends Resolvers
 };
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
-  getProducts?: Resolver<Maybe<Array<ResolversTypes['ProductList']>>, ParentType, ContextType>;
+  getProducts?: Resolver<Maybe<Array<ResolversTypes['ProductList']>>, ParentType, ContextType, RequireFields<QueryGetProductsArgs, 'query'>>;
 };
 
 export type Resolvers<ContextType = any> = {
@@ -164,8 +179,8 @@ export type Resolvers<ContextType = any> = {
 
 
 export const GetProductsDocument = gql`
-    query GetProducts {
-  getProducts {
+    query GetProducts($query: GetProductsQueryArgs!) {
+  getProducts(query: $query) {
     category
     products {
       _id
@@ -193,10 +208,11 @@ export const GetProductsDocument = gql`
  * @example
  * const { data, loading, error } = useGetProductsQuery({
  *   variables: {
+ *      query: // value for 'query'
  *   },
  * });
  */
-export function useGetProductsQuery(baseOptions?: Apollo.QueryHookOptions<GetProductsQuery, GetProductsQueryVariables>) {
+export function useGetProductsQuery(baseOptions: Apollo.QueryHookOptions<GetProductsQuery, GetProductsQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
         return Apollo.useQuery<GetProductsQuery, GetProductsQueryVariables>(GetProductsDocument, options);
       }

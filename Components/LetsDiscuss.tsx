@@ -5,6 +5,7 @@ import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import { m } from 'framer-motion'
 import { imageShadowVariant, letsDiscussVariant } from '../animations/heroImage'
+import Link from 'next/link'
 
 const sx: SxProps = {
   root: {
@@ -68,9 +69,11 @@ const LetsDiscuss = () => {
             our services.Ut id lorem urna. Nullam vestibulum odio eget ex
             molestie lacinia.
           </Typography>
-          <StyledButton size="large" variant="contained">
-            Contact us
-          </StyledButton>
+          <Link href="/contacts" passHref>
+            <StyledButton size="large" variant="contained">
+              Contact us
+            </StyledButton>
+          </Link>
         </Box>
       </Box>
 
