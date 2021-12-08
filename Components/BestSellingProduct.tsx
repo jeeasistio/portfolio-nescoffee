@@ -10,6 +10,8 @@ import {
   imageVariant
 } from '../animations/bestSellingProducts'
 import { m, useAnimation } from 'framer-motion'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 interface Product {
   image: {
@@ -63,6 +65,7 @@ const sx: SxProps = {
 const BestSellingProduct = ({ product }: Props) => {
   const orderNowControls = useAnimation()
   const imageControls = useAnimation()
+  const router = useRouter()
 
   const handleHover = () => {
     orderNowControls.start('show')
@@ -74,10 +77,14 @@ const BestSellingProduct = ({ product }: Props) => {
     imageControls.start('normal')
   }
 
+  const handleClick = () => {
+    router.push('/contacts')
+  }
+
   return (
     <Grid item xs={12} sm={8} md={5} lg={3.9}>
       <Box sx={sx.borderFix}>
-        <CardActionArea>
+        <CardActionArea onClick={handleClick}>
           <Box
             sx={sx.innerCtn}
             component={m.div}

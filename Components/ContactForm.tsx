@@ -60,14 +60,11 @@ const ContactForm = () => {
           <FormControl variant="standard" fullWidth>
             <Select
               id="flavor-select"
-              value="1"
+              value="Order"
               input={<StyledSelectInputBase />}
             >
-              <MenuItem value="1" selected={true}>
-                Nutellatte
-              </MenuItem>
-              <MenuItem value="2">Nutellatte</MenuItem>
-              <MenuItem value="3">Nutellatte</MenuItem>
+              <MenuItem value="Order">Order</MenuItem>
+              <MenuItem value="Inquiry">Inquiry</MenuItem>
             </Select>
           </FormControl>
           <FormControl variant="standard" fullWidth>
@@ -77,10 +74,8 @@ const ContactForm = () => {
               input={<StyledSelectInputBase />}
             >
               <MenuItem value="1" selected={true}>
-                Nutellatte
+                Coffee
               </MenuItem>
-              <MenuItem value="2">Nutellatte</MenuItem>
-              <MenuItem value="3">Nutellatte</MenuItem>
             </Select>
           </FormControl>
         </Box>

@@ -46,7 +46,8 @@ const Products = ({ productList }: Props) => {
     setQuery((prev) => ({ ...prev, category: e.target.value }))
   }
 
-  const handleSearch = () => {
+  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
     setVars(query)
   }
 

@@ -20,7 +20,7 @@ const sx: SxProps = {
 interface Props {
   handleName(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void
   handleCategory(e: SelectChangeEvent<string>): void
-  handleSearch(): void
+  handleSearch(e: React.FormEvent<HTMLFormElement>): void
   query: GetProductsQueryArgs
 }
 
@@ -42,7 +42,11 @@ const ProductSearch = ({
       </Box>
 
       <Box>
-        <FormControl variant="standard">
+        <FormControl
+          variant="standard"
+          component="form"
+          onSubmit={handleSearch}
+        >
           <Select
             id="flavor-select"
             value={query.category}
@@ -57,7 +61,7 @@ const ProductSearch = ({
       </Box>
 
       <Box>
-        <StyledButton variant="contained" size="large" onClick={handleSearch}>
+        <StyledButton type="submit" variant="contained" size="large">
           Search
         </StyledButton>
       </Box>
