@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { SxProps } from '@mui/system'
 import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box'
@@ -13,10 +12,7 @@ const Copyright = () => {
   return (
     <Box sx={sx.root}>
       <Typography color="inherit">
-        &copy; {new Date().getFullYear()}{' '}
-        <Link href="#">
-          <a>localhost</a>
-        </Link>
+        &copy; {new Date().getFullYear()} Coffee. All Right Reserved
       </Typography>
     </Box>
   )

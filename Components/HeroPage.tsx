@@ -62,13 +62,12 @@ const sx: SxProps = {
   },
   headingCtn: {
     display: 'flex',
+    justifyContent: { xs: 'center', sm: 'flex-start' },
     overflow: 'hidden',
     mb: 1
   },
   heading: {
-    textShadow: '0px 4px 4px #00000040',
-    fontWeight: 'bold',
-    textAlign: { xs: 'center', sm: 'left' }
+    textShadow: '0px 4px 4px #00000040'
   },
   subheadingCtn: {
     mb: 8,
@@ -141,7 +140,6 @@ const HeroPage = () => {
   return (
     <Box sx={sx.root} component="section">
       <BlackBoxBackground />
-      <Box sx={sx.background} />
 
       <Box sx={sx.imageCtnOuter}>
         <Box
@@ -182,8 +180,8 @@ const HeroPage = () => {
                 sx={sx.heading}
                 component={m.h2}
                 key={index}
-                variants={heroHeadingVariant}
                 variant="h2"
+                variants={heroHeadingVariant}
               >
                 {char}
               </Typography>

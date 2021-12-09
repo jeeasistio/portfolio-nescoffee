@@ -14,7 +14,7 @@ const sx: SxProps = {
     justifyContent: { xs: 'center', md: 'space-between' },
     alignItems: 'center',
     gap: 2,
-    my: 12,
+    my: 4,
     p: 1,
     overflow: 'hidden'
   },

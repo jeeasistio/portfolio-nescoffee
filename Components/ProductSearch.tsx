@@ -31,7 +31,7 @@ const ProductSearch = ({
   handleSearch
 }: Props) => {
   return (
-    <Box sx={sx.root}>
+    <Box sx={sx.root} component="form" onSubmit={handleSearch}>
       <Box>
         <StyledTextField
           variant="outlined"
@@ -42,11 +42,7 @@ const ProductSearch = ({
       </Box>
 
       <Box>
-        <FormControl
-          variant="standard"
-          component="form"
-          onSubmit={handleSearch}
-        >
+        <FormControl variant="standard">
           <Select
             id="flavor-select"
             value={query.category}

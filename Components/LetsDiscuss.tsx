@@ -11,7 +11,7 @@ const sx: SxProps = {
   root: {
     display: 'flex',
     flexDirection: { xs: 'column', md: 'row' },
-    my: 12
+    my: 4
   },
   textCtn: {
     backgroundColor: 'secondary.main',

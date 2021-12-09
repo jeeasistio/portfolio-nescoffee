@@ -13,6 +13,7 @@ import ErrorMessage from '../Components/ErrorMessage'
 import { GetStaticProps } from 'next'
 import { getProducts } from '../models/mongoDbQueries'
 import { connection, connect } from 'mongoose'
+import Head from 'next/head'
 
 interface Props {
   productList: string
@@ -53,6 +54,10 @@ const Products = ({ productList }: Props) => {
 
   return (
     <Layout>
+      <Head>
+        <title>Products</title>
+      </Head>
+
       <ProductSearch
         query={query}
         handleName={handleName}
