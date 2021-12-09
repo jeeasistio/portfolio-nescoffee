@@ -45,25 +45,25 @@ let theme = createTheme({
       fontFamily: 'Old Standard TT'
     },
     h6: {
-      fontFamily: 'Crimson Text'
+      fontFamily: 'Crimson Pro'
     },
     subtitle1: {
-      fontFamily: 'Crimson Text'
+      fontFamily: 'Crimson Pro'
     },
     subtitle2: {
-      fontFamily: 'Crimson Text'
+      fontFamily: 'Crimson Pro'
     },
     body1: {
-      fontFamily: 'Crimson Text'
+      fontFamily: 'Crimson Pro'
     },
     body2: {
-      fontFamily: 'Crimson Text'
+      fontFamily: 'Crimson Pro'
     },
     button: {
-      fontFamily: 'Crimson Text'
+      fontFamily: 'Crimson Pro'
     },
     caption: {
-      fontFamily: 'Crimson Text'
+      fontFamily: 'Crimson Pro'
     },
     overline: {
       fontFamily: 'Crimson Text'
