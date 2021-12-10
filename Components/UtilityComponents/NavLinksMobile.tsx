@@ -12,7 +12,7 @@ import ListItemText from '@mui/material/ListItemText'
 
 const sx: SxProps = {
   root: {
-    display: { sm: 'none' }
+    display: { md: 'none' }
   },
   linkText: {
     letterSpacing: 1
@@ -45,13 +45,11 @@ const NavLinksMobile = () => {
       <Menu open={show} anchorEl={anchorEl.current} onClose={handleClose}>
         <MenuList>
           {navLinks.map((link) => (
-            <MenuItem selected={router.pathname === link.link} key={link.name}>
-              <ListItemText sx={sx.linkText}>
-                <Link href={link.link}>
-                  <a>{link.name}</a>
-                </Link>
-              </ListItemText>
-            </MenuItem>
+            <Link href={link.link} passHref key={link.name}>
+              <MenuItem selected={router.pathname === link.link}>
+                <ListItemText sx={sx.linkText}>{link.name}</ListItemText>
+              </MenuItem>
+            </Link>
           ))}
         </MenuList>
       </Menu>

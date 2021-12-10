@@ -5,7 +5,7 @@ import { boxBackgroundVariant } from '../../animations/boxBackground'
 
 const sx: SxProps = {
   root: {
-    display: { xs: 'none', sm: 'block' },
+    display: { xs: 'none', md: 'block' },
     width: { sm: 0.5, md: 0.3, lg: 0.25, xl: 0.2 },
     height: '100vh',
     backgroundColor: 'secondary.main',

@@ -21,7 +21,7 @@ const sx: SxProps = {
   root: {
     height: '90vh',
     display: 'flex',
-    flexDirection: { xs: 'column', sm: 'row-reverse' },
+    flexDirection: { xs: 'column', md: 'row-reverse' },
     overflowX: 'hidden'
   },
 
@@ -29,13 +29,13 @@ const sx: SxProps = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    height: { xs: 0.4, sm: 1 },
-    width: { xs: 1, sm: 1 / 2 }
+    height: { xs: 0.4, md: 1 },
+    width: { xs: 1, md: 1 / 2 }
   },
   imageCtnInner: {
     position: 'relative',
-    width: { xs: 150, sm: 225, md: 360 },
-    height: { xs: 260, sm: 390, md: 624 }
+    width: { xs: 150, md: 360 },
+    height: { xs: 260, md: 624 }
   },
   imageShadow: {
     position: 'absolute',
@@ -46,8 +46,8 @@ const sx: SxProps = {
     backgroundColor: 'primary.main'
   },
   textCtnOuter: {
-    height: { xs: 0.6, sm: 1 },
-    width: { xs: 1, sm: 1 / 2 },
+    height: { xs: 0.6, md: 1 },
+    width: { xs: 1, md: 1 / 2 },
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center'
@@ -62,7 +62,7 @@ const sx: SxProps = {
   },
   headingCtn: {
     display: 'flex',
-    justifyContent: { xs: 'center', sm: 'flex-start' },
+    justifyContent: { xs: 'center', md: 'flex-start' },
     overflow: 'hidden',
     mb: 1
   },
@@ -71,8 +71,8 @@ const sx: SxProps = {
   },
   subheadingCtn: {
     mb: 8,
-    textAlign: { xs: 'center', sm: 'left' },
-    width: { sm: 0.7 }
+    textAlign: { xs: 'center', md: 'left' },
+    width: { md: 0.7 }
   },
   subheading: {
     color: 'secondary.light'
@@ -84,7 +84,7 @@ const sx: SxProps = {
   buttonsCtn: {
     width: '100%',
     display: 'flex',
-    justifyContent: { xs: 'space-evenly', sm: 'flex-start' },
+    justifyContent: { xs: 'space-evenly', md: 'flex-start' },
     mb: 4,
     gap: 2
   },
@@ -96,7 +96,7 @@ const sx: SxProps = {
     zIndex: -1
   },
   wordsInnerCtn: {
-    width: { sm: 0.5 },
+    width: { md: 0.5 },
     overflow: 'hidden',
     position: 'relative'
   },
@@ -140,6 +140,7 @@ const HeroPage = () => {
   return (
     <Box sx={sx.root} component="section">
       <BlackBoxBackground />
+      <Box sx={sx.background} />
 
       <Box sx={sx.imageCtnOuter}>
         <Box

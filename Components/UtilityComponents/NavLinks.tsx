@@ -7,7 +7,7 @@ import Button from '@mui/material/Button'
 
 const sx: SxProps = {
   root: {
-    display: { xs: 'none', sm: 'flex' }
+    display: { xs: 'none', md: 'flex' }
   }
 }
 
