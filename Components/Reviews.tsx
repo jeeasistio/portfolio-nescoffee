@@ -64,6 +64,12 @@ const sx: SxProps = {
     zIndex: 1,
     p: 2,
     boxShadow: 1
+  },
+  howCtn: {
+    backgroundColor: 'primary.main',
+    color: 'common.white',
+    p: 4,
+    my: 2
   }
 }
 
@@ -98,7 +104,7 @@ const Reviews = () => {
           viewport={{ once: true }}
         >
           <Image
-            src="https://i.ibb.co/Cm1PD1B/review-coffee-small.jpg"
+            src="https://i.ibb.co/sy42VdT/review-coffee-2.jpg"
             alt="review-coffee-small"
             layout="fill"
             objectFit="cover"
@@ -160,6 +166,21 @@ const Reviews = () => {
           </Typography>
           <Typography align="right" variant="subtitle2">
             - Artist
+          </Typography>
+        </Box>
+      </Grid>
+
+      <Grid item xs={10} md={4}>
+        <Box
+          sx={sx.howCtn}
+          component={m.div}
+          variants={fadeFromRight}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+        >
+          <Typography variant="h4">
+            How beautiful it is to do nothing, and then to rest afterwards.
           </Typography>
         </Box>
       </Grid>
