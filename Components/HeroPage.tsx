@@ -168,6 +168,7 @@ const HeroPage = () => {
                 key={index}
                 variant="h2"
                 variants={heroHeadingVariant}
+                fontWeight="bold"
               >
                 {char}
               </Typography>
@@ -175,7 +176,7 @@ const HeroPage = () => {
           </Box>
 
           <Box sx={sx.subheadingCtn}>
-            <Typography sx={sx.subheading}>
+            <Typography sx={sx.subheading} fontWeight="bold">
               Boost your productivity and build your mood with a glass of{' '}
               <Typography component="span" sx={sx.coffeeSubheading}>
                 COFFEE
