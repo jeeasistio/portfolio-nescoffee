@@ -20,7 +20,8 @@ const sx: SxProps = {
     border: 2,
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    backgroundColor: 'primary.main'
   },
   form: {
     display: 'flex',
@@ -48,19 +49,20 @@ const ContactForm = () => {
       viewport={{ once: true }}
     >
       <Box sx={sx.headingCtn}>
-        <Typography variant="h3" paragraph>
+        <Typography variant="h3" paragraph color="secondary">
           Contact Form
         </Typography>
       </Box>
 
       <Box sx={sx.form}>
-        <StyledTextField variant="outlined" label="Name" />
-        <StyledTextField variant="outlined" label="Email" />
+        <StyledTextField variant="outlined" label="Name" color="secondary" />
+        <StyledTextField variant="outlined" label="Email" color="secondary" />
         <Box sx={sx.selectFields}>
           <FormControl variant="standard" fullWidth>
             <Select
               id="flavor-select"
               value="Order"
+              color="secondary"
               input={<StyledSelectInputBase />}
             >
               <MenuItem value="Order">Order</MenuItem>
@@ -81,7 +83,7 @@ const ContactForm = () => {
         </Box>
         <StyledTextField multiline variant="outlined" label="Description..." />
         <m.div variants={contactFormBtnVariant}>
-          <StyledButton fullWidth variant="contained">
+          <StyledButton fullWidth variant="contained" color="secondary">
             Send Email
           </StyledButton>
         </m.div>

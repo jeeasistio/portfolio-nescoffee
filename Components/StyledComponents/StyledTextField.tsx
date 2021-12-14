@@ -5,7 +5,7 @@ import { MUIStyledCommonProps } from '@mui/system'
 
 const StyledTextField = styled(TextField)(({ theme }) => ({
   '& label': {
-    color: theme.palette.secondary.light
+    color: theme.palette.secondary.main
   },
   '& .MuiOutlinedInput-root': {
     '& fieldset': {

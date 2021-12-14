@@ -14,24 +14,12 @@ const sx: SxProps = {
 const button: SxProps = {
   textTransform: 'none',
   borderRadius: 0,
-  color: 'secondary.main',
   letterSpacing: 1
 }
 
-const activeButton: SxProps = {
-  ...button,
-  color: 'primary.main',
-  borderBottom: 2
-}
-
-const heroButton: SxProps = {
+const activeHeroButton = {
   ...button,
   color: 'common.white'
-}
-
-const heroActiveButton: SxProps = {
-  ...activeButton,
-  color: 'secondary.contrastText'
 }
 
 const NavLinks = () => {
@@ -42,16 +30,9 @@ const NavLinks = () => {
       {navLinks.map((link) => (
         <Link key={link.name} href={link.link} passHref>
           <Button
-            size="large"
-            sx={
-              router.pathname === '/' && router.pathname === link.link
-                ? heroActiveButton
-                : router.pathname === '/' && router.pathname !== link.link
-                ? heroButton
-                : router.pathname === link.link
-                ? activeButton
-                : button
-            }
+            color={router.pathname === link.link ? 'primary' : 'secondary'}
+            variant={router.pathname === link.link ? 'contained' : 'text'}
+            sx={router.pathname === '/' ? activeHeroButton : button}
           >
             {link.name}
           </Button>

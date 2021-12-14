@@ -17,10 +17,10 @@ const sx: SxProps = {
     position: 'fixed',
     width: '100vw',
     height: '100vh',
-    background: 'url(https://i.ibb.co/s9nYGh2/coffee-background-3.jpg)',
+    background: 'url(https://i.ibb.co/3CcQ2N7/coffee-background-7.jpg)',
     backgroundSize: 'cover',
     zIndex: -1,
-    opacity: 0.3
+    opacity: 0.5
   }
 }
 
@@ -43,3 +43,8 @@ const App = ({ Component, pageProps }: AppProps) => {
 }
 
 export default App
+
+{
+  /* <img src="https://i.ibb.co/r4fKTRr/coffee-background-6.png" alt="coffee-background-6" border="0">
+<img src="https://i.ibb.co/3CcQ2N7/coffee-background-7.jpg" alt="coffee-background-7" border="0"></img> */
+}
