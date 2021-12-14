@@ -70,7 +70,7 @@ const sx: SxProps = {
     textShadow: '0px 4px 4px #00000040'
   },
   subheadingCtn: {
-    mb: 8,
+    mb: { xs: 4, md : 8 },
     textAlign: { xs: 'center', md: 'left' },
     width: { md: 0.7 }
   },
