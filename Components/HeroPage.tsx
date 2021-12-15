@@ -176,7 +176,7 @@ const HeroPage = () => {
           </Box>
 
           <Box sx={sx.subheadingCtn}>
-            <Typography sx={sx.subheading} fontWeight="bold">
+            <Typography sx={sx.subheading} fontWeight="medium">
               Boost your productivity and build your mood with a glass of{' '}
               <Typography component="span" sx={sx.coffeeSubheading}>
                 COFFEE
