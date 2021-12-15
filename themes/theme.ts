@@ -15,8 +15,8 @@ let theme = createTheme({
       contrastText: '#DEB97C'
     },
     background: {
-      paper: '#f3f3f3',
-      default: '#f3f3f3'
+      paper: '#EDDFC5',
+      default: '#EDDFC5'
     },
     common: {
       white: '#f3f3f3',

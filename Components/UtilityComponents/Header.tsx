@@ -1,10 +1,11 @@
-import Link from 'next/link'
 import { SxProps } from '@mui/system'
 import NavLinksMobile from './NavLinksMobile'
 import NavLinks from './NavLinks'
 import AppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar'
-import Typography from '@mui/material/Typography'
+import Box from '@mui/material/Box'
+import Image from 'next/image'
+import Link from 'next/link'
 
 const sx: SxProps = {
   appbar: {
@@ -16,20 +17,27 @@ const sx: SxProps = {
     alignItems: 'center',
     color: 'primary.main',
     minHeight: '10vh',
-    p: 1,
-    py: 2
-  }
+    p: 1
+  },
+  logo: {}
 }
 
 const HeroPageHeader = () => {
   return (
     <AppBar sx={sx.appbar} position="static" elevation={0}>
       <Toolbar sx={sx.toolbar}>
-        <Typography variant="h4" component="h1">
-          <Link passHref href="/">
-            <a>Coffee</a>
+        <Box sx={sx.logo}>
+          <Link href="/" passHref>
+            <a>
+              <Image
+                src="https://i.ibb.co/b1rY22n/coffee-logo.png"
+                width="150"
+                height="50"
+                alt="logo"
+              />
+            </a>
           </Link>
-        </Typography>
+        </Box>
         <NavLinks />
         <NavLinksMobile />
       </Toolbar>

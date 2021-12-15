@@ -28,6 +28,9 @@ class MyDocument extends Document {
           href="https://fonts.gstatic.com"
           crossOrigin="true"
         />
+        <link rel="icon" href="/coffee_logo.ico"></link>
+        <title>Coffee</title>
+        <meta name="description" content="Best Coffee in the philippines" />
         <body>
           <Main />
           <NextScript />
