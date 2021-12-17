@@ -81,7 +81,7 @@ const ContactForm = () => {
             </Select>
           </FormControl>
         </Box>
-        <StyledTextField multiline variant="outlined" label="Description..." />
+        <StyledTextField multiline variant="outlined" label="Description..." color="secondary" />
         <m.div variants={contactFormBtnVariant}>
           <StyledButton fullWidth variant="contained" color="secondary">
             Send Email
