@@ -2,7 +2,7 @@ import { SxProps } from '@mui/system'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import FormControl from '@mui/material/FormControl'
-import Select from '@mui/material/Select'
+import Select, { SelectChangeEvent } from '@mui/material/Select'
 import MenuItem from '@mui/material/MenuItem'
 import StyledTextField from './StyledComponents/StyledTextField'
 import StyledSelectInputBase from './StyledComponents/StyledSelectInputBase'
@@ -12,6 +12,8 @@ import {
   contactFormCtnVariant,
   contactFormBtnVariant
 } from '../animations/contactForm'
+import useContact, { OrderType } from '../hooks/useContact'
+import React from 'react'
 
 const sx: SxProps = {
   root: {
@@ -35,10 +37,42 @@ const sx: SxProps = {
   selectFields: {
     display: 'flex',
     gap: 2
+  },
+  quantity: {
+    alignSelf: 'flex-end'
   }
 }
 
 const ContactForm = () => {
+  const { fields, handleField } = useContact()
+
+  const handleName = (
+    e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+  ) => {
+    handleField('name', e.target.value)
+  }
+  const handleEmail = (
+    e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+  ) => {
+    handleField('email', e.target.value)
+  }
+  const handleQuantity = (
+    e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+  ) => {
+    handleField('quantity', e.target.value)
+  }
+  const handleMessage = (
+    e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+  ) => {
+    handleField('message', e.target.value)
+  }
+  const handleType = (e: SelectChangeEvent<OrderType>) => {
+    handleField('type', e.target.value)
+  }
+  const handleProduct = (e: SelectChangeEvent<string>) => {
+    handleField('product', e.target.value)
+  }
+
   return (
     <Box
       sx={sx.root}
@@ -55,24 +89,43 @@ const ContactForm = () => {
       </Box>
 
       <Box sx={sx.form}>
-        <StyledTextField variant="outlined" label="Name" color="secondary" />
-        <StyledTextField variant="outlined" label="Email" color="secondary" />
+        <StyledTextField
+          variant="outlined"
+          label="Name"
+          color="secondary"
+          value={fields['name']}
+          onChange={handleName}
+        />
+
+        <StyledTextField
+          variant="outlined"
+          label="Email"
+          type="email"
+          color="secondary"
+          value={fields['email']}
+          onChange={handleEmail}
+        />
+
         <Box sx={sx.selectFields}>
           <FormControl variant="standard" fullWidth>
+            <Typography>Type</Typography>
             <Select
-              id="flavor-select"
-              value="Order"
+              value={fields.type}
               color="secondary"
+              onChange={handleType}
               input={<StyledSelectInputBase />}
             >
-              <MenuItem value="Order">Order</MenuItem>
-              <MenuItem value="Inquiry">Inquiry</MenuItem>
+              <MenuItem value={OrderType.order}>Order</MenuItem>
+              <MenuItem value={OrderType.inquiry}>Inquiry</MenuItem>
             </Select>
           </FormControl>
+
           <FormControl variant="standard" fullWidth>
+            <Typography>Product</Typography>
             <Select
-              id="flavor-select"
               value="1"
+              color="secondary"
+              onChange={handleProduct}
               input={<StyledSelectInputBase />}
             >
               <MenuItem value="1" selected={true}>
@@ -80,8 +133,26 @@ const ContactForm = () => {
               </MenuItem>
             </Select>
           </FormControl>
+
+          <StyledTextField
+            sx={sx.quantity}
+            variant="outlined"
+            label="Quantity"
+            color="secondary"
+            value={fields['quantity']}
+            onChange={handleQuantity}
+          />
         </Box>
-        <StyledTextField multiline variant="outlined" label="Description..." />
+
+        <StyledTextField
+          multiline
+          variant="outlined"
+          label="Message..."
+          color="secondary"
+          value={fields['message']}
+          onChange={handleMessage}
+        />
+
         <m.div variants={contactFormBtnVariant}>
           <StyledButton fullWidth variant="contained" color="secondary">
             Send Email
