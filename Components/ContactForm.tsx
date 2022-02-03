@@ -14,7 +14,7 @@ import {
 } from '../animations/contactForm'
 import useContact from '../hooks/useContact'
 import React from 'react'
-import { ProductName } from '../graphql/generatedTypes'
+import { ProductName, useSendEmailMutation } from '../graphql/generatedTypes'
 import { OrderType } from '../hooks/ContactFormContext'
 
 const sx: SxProps = {
@@ -52,6 +52,13 @@ interface Props {
 const ContactForm = ({ productsNames }: Props) => {
   const { fields, handleField } = useContact()
 
+  const [sendEmail, {data, loading, error}] = useSendEmailMutation({ variables: {form: fields}})
+
+  const handleSubmit = (e: React.SyntheticEvent) => {
+    e.preventDefault()
+    sendEmail()
+  }
+
   const handleName = (
     e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
   ) => {
@@ -82,11 +89,12 @@ const ContactForm = ({ productsNames }: Props) => {
   return (
     <Box
       sx={sx.root}
-      component={m.div}
+      component={m.form}
       variants={contactFormCtnVariant}
       initial="hidden"
       whileInView="show"
       viewport={{ once: true }}
+      onSubmit={handleSubmit}
     >
       <Box sx={sx.headingCtn}>
         <Typography variant="h3" paragraph color="secondary">
@@ -169,7 +177,7 @@ const ContactForm = ({ productsNames }: Props) => {
         />
 
         <m.div variants={contactFormBtnVariant}>
-          <StyledButton fullWidth variant="contained" color="secondary">
+          <StyledButton type="submit" fullWidth variant="contained" color="secondary">
             Send Email
           </StyledButton>
         </m.div>

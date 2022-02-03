@@ -1,9 +1,9 @@
 {
-  "extends": ["next/core-web-vitals", "plugin:@typescript-eslint/recommended", "plugin:prettier/recommended"],
+  "extends": ["next/core-web-vitals", "plugin:prettier/recommended"],
   "rules": {
     "prefer-const": "warn",
     "no-console": "warn",
-    "@typescript-eslint/no-unused-vars": "warn",
+    "no-unused-vars":"warn",
     "prettier/prettier": [
       "error",
       { "endOfLine": "auto" },

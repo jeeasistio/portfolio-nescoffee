@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-type EnvKeys = 'MONGO_URI'
+type EnvKeys = 'MONGO_URI' | 'GOOGLE_USER' | 'GOOGLE_PASS' | 'ADMIN_USER'
 
 type EnvTypes = Record<EnvKeys, string>
 

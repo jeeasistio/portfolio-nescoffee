@@ -26,3 +26,11 @@ export const GET_PRODUCTS_NAMES = gql`
     }
   }
 `
+
+export const SEND_EMAIL = gql`
+  mutation SendEmail($form: SendEmailArgs!) {
+    sendEmail(form: $form) {
+      message
+    }
+  }
+`

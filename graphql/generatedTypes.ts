@@ -17,9 +17,24 @@ export type Scalars = {
   Float: number;
 };
 
+export type EmailSent = {
+  __typename?: 'EmailSent';
+  message: Scalars['String'];
+};
+
 export type GetProductsQueryArgs = {
   category: Scalars['String'];
   name: Scalars['String'];
+};
+
+export type Mutation = {
+  __typename?: 'Mutation';
+  sendEmail: EmailSent;
+};
+
+
+export type MutationSendEmailArgs = {
+  form: SendEmailArgs;
 };
 
 export type Product = {
@@ -57,6 +72,15 @@ export type QueryGetProductsArgs = {
   query: GetProductsQueryArgs;
 };
 
+export type SendEmailArgs = {
+  email: Scalars['String'];
+  message?: InputMaybe<Scalars['String']>;
+  name: Scalars['String'];
+  product?: InputMaybe<Scalars['String']>;
+  quantity?: InputMaybe<Scalars['Int']>;
+  type: Scalars['String'];
+};
+
 export type GetProductsQueryVariables = Exact<{
   query: GetProductsQueryArgs;
 }>;
@@ -68,6 +92,13 @@ export type GetProductsNamesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type GetProductsNamesQuery = { __typename?: 'Query', getProductsNames?: Array<{ __typename?: 'ProductName', name: string, available: boolean }> | null | undefined };
+
+export type SendEmailMutationVariables = Exact<{
+  form: SendEmailArgs;
+}>;
+
+
+export type SendEmailMutation = { __typename?: 'Mutation', sendEmail: { __typename?: 'EmailSent', message: string } };
 
 
 
@@ -139,27 +170,42 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = {
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
+  EmailSent: ResolverTypeWrapper<EmailSent>;
   GetProductsQueryArgs: GetProductsQueryArgs;
   ID: ResolverTypeWrapper<Scalars['ID']>;
   Int: ResolverTypeWrapper<Scalars['Int']>;
+  Mutation: ResolverTypeWrapper<{}>;
   Product: ResolverTypeWrapper<Product>;
   ProductList: ResolverTypeWrapper<ProductList>;
   ProductName: ResolverTypeWrapper<ProductName>;
   Query: ResolverTypeWrapper<{}>;
+  SendEmailArgs: SendEmailArgs;
   String: ResolverTypeWrapper<Scalars['String']>;
 };
 
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = {
   Boolean: Scalars['Boolean'];
+  EmailSent: EmailSent;
   GetProductsQueryArgs: GetProductsQueryArgs;
   ID: Scalars['ID'];
   Int: Scalars['Int'];
+  Mutation: {};
   Product: Product;
   ProductList: ProductList;
   ProductName: ProductName;
   Query: {};
+  SendEmailArgs: SendEmailArgs;
   String: Scalars['String'];
+};
+
+export type EmailSentResolvers<ContextType = any, ParentType extends ResolversParentTypes['EmailSent'] = ResolversParentTypes['EmailSent']> = {
+  message?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type MutationResolvers<ContextType = any, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = {
+  sendEmail?: Resolver<ResolversTypes['EmailSent'], ParentType, ContextType, RequireFields<MutationSendEmailArgs, 'form'>>;
 };
 
 export type ProductResolvers<ContextType = any, ParentType extends ResolversParentTypes['Product'] = ResolversParentTypes['Product']> = {
@@ -192,6 +238,8 @@ export type QueryResolvers<ContextType = any, ParentType extends ResolversParent
 };
 
 export type Resolvers<ContextType = any> = {
+  EmailSent?: EmailSentResolvers<ContextType>;
+  Mutation?: MutationResolvers<ContextType>;
   Product?: ProductResolvers<ContextType>;
   ProductList?: ProductListResolvers<ContextType>;
   ProductName?: ProductNameResolvers<ContextType>;
@@ -280,3 +328,36 @@ export function useGetProductsNamesLazyQuery(baseOptions?: Apollo.LazyQueryHookO
 export type GetProductsNamesQueryHookResult = ReturnType<typeof useGetProductsNamesQuery>;
 export type GetProductsNamesLazyQueryHookResult = ReturnType<typeof useGetProductsNamesLazyQuery>;
 export type GetProductsNamesQueryResult = Apollo.QueryResult<GetProductsNamesQuery, GetProductsNamesQueryVariables>;
+export const SendEmailDocument = gql`
+    mutation SendEmail($form: SendEmailArgs!) {
+  sendEmail(form: $form) {
+    message
+  }
+}
+    `;
+export type SendEmailMutationFn = Apollo.MutationFunction<SendEmailMutation, SendEmailMutationVariables>;
+
+/**
+ * __useSendEmailMutation__
+ *
+ * To run a mutation, you first call `useSendEmailMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useSendEmailMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [sendEmailMutation, { data, loading, error }] = useSendEmailMutation({
+ *   variables: {
+ *      form: // value for 'form'
+ *   },
+ * });
+ */
+export function useSendEmailMutation(baseOptions?: Apollo.MutationHookOptions<SendEmailMutation, SendEmailMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<SendEmailMutation, SendEmailMutationVariables>(SendEmailDocument, options);
+      }
+export type SendEmailMutationHookResult = ReturnType<typeof useSendEmailMutation>;
+export type SendEmailMutationResult = Apollo.MutationResult<SendEmailMutation>;
+export type SendEmailMutationOptions = Apollo.BaseMutationOptions<SendEmailMutation, SendEmailMutationVariables>;

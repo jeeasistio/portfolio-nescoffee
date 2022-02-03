@@ -22,14 +22,31 @@ const typeDefs = gql`
     available: Boolean!
   }
 
+  type EmailSent {
+    message: String!
+  }
+
   input GetProductsQueryArgs {
     name: String!
     category: String!
   }
 
+  input SendEmailArgs {
+    name: String!
+    email: String!
+    type: String!
+    product: String
+    quantity: Int
+    message: String
+  }
+
   type Query {
     getProducts(query: GetProductsQueryArgs!): [ProductList!]
     getProductsNames: [ProductName!]
+  }
+
+  type Mutation {
+    sendEmail(form: SendEmailArgs!): EmailSent!
   }
 `
 export default typeDefs

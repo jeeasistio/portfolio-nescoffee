@@ -1,3 +1,4 @@
+import sendEmail from '../lib/sendEmail'
 import { getProducts, getProductsNames } from '../models/mongoDbQueries'
 import { Resolvers } from './generatedTypes'
 
@@ -10,6 +11,12 @@ const resolvers: Resolvers = {
     async getProductsNames() {
       const productName = await getProductsNames()
       return productName
+    }
+  },
+  Mutation: {
+    async sendEmail(_parent, args) {
+      const sentEmail = await sendEmail(args.form)
+      return sentEmail
     }
   }
 }
