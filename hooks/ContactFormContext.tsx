@@ -34,7 +34,9 @@ interface ContactFormContent {
   handleProductOrder: (productName: string) => void
 }
 
-export const ContactFormContext = createContext<ContactFormContent>({})
+export const ContactFormContext = createContext<ContactFormContent>(
+  {} as ContactFormContent
+)
 
 interface Props {
   children: React.ReactNode
