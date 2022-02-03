@@ -12,8 +12,10 @@ import {
   contactFormCtnVariant,
   contactFormBtnVariant
 } from '../animations/contactForm'
-import useContact, { OrderType } from '../hooks/useContact'
+import useContact from '../hooks/useContact'
 import React from 'react'
+import { ProductName } from '../graphql/generatedTypes'
+import { OrderType } from '../hooks/ContactFormContext'
 
 const sx: SxProps = {
   root: {
@@ -43,7 +45,11 @@ const sx: SxProps = {
   }
 }
 
-const ContactForm = () => {
+interface Props {
+  productsNames: ProductName[]
+}
+
+const ContactForm = ({ productsNames }: Props) => {
   const { fields, handleField } = useContact()
 
   const handleName = (
@@ -108,7 +114,7 @@ const ContactForm = () => {
 
         <Box sx={sx.selectFields}>
           <FormControl variant="standard" fullWidth>
-            <Typography>Type</Typography>
+            <Typography variant="subtitle2">Type</Typography>
             <Select
               value={fields.type}
               color="secondary"
@@ -120,28 +126,37 @@ const ContactForm = () => {
             </Select>
           </FormControl>
 
-          <FormControl variant="standard" fullWidth>
-            <Typography>Product</Typography>
-            <Select
-              value="1"
-              color="secondary"
-              onChange={handleProduct}
-              input={<StyledSelectInputBase />}
-            >
-              <MenuItem value="1" selected={true}>
-                Coffee
-              </MenuItem>
-            </Select>
-          </FormControl>
+          {fields.type === OrderType.order && (
+            <FormControl variant="standard" fullWidth>
+              <Typography variant="subtitle2">Product</Typography>
+              <Select
+                value={fields.product}
+                color="secondary"
+                onChange={handleProduct}
+                input={<StyledSelectInputBase />}
+              >
+                <MenuItem value="default" selected={true} disabled={true}>
+                  Please select a product
+                </MenuItem>
+                {productsNames.map(({ name, available }) => (
+                  <MenuItem key={name} value={name} disabled={available}>
+                    {name}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          )}
 
-          <StyledTextField
-            sx={sx.quantity}
-            variant="outlined"
-            label="Quantity"
-            color="secondary"
-            value={fields['quantity']}
-            onChange={handleQuantity}
-          />
+          {fields.type === OrderType.order && (
+            <StyledTextField
+              sx={sx.quantity}
+              variant="outlined"
+              label="Quantity"
+              color="secondary"
+              value={fields['quantity']}
+              onChange={handleQuantity}
+            />
+          )}
         </Box>
 
         <StyledTextField

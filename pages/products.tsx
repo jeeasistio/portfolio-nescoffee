@@ -2,9 +2,9 @@ import Layout from '../Components/UtilityComponents/Layout'
 import ProductSearch from '../Components/ProductSearch'
 import ProductList from '../Components/ProductList'
 import {
-  useGetProductsQuery,
   ProductList as IProductList,
-  GetProductsQueryArgs
+  GetProductsQueryArgs,
+  useGetProductsLazyQuery
 } from '../graphql/generatedTypes'
 import { useState } from 'react'
 import { SelectChangeEvent } from '@mui/material/Select'
@@ -29,7 +29,7 @@ const Products = ({ productList }: Props) => {
     IProductList[] | undefined | null
   >(JSON.parse(productList))
 
-  const { loading, error } = useGetProductsQuery({
+  const [getProducts, { loading, error }] = useGetProductsLazyQuery({
     variables: { query: vars },
     onCompleted(data) {
       setAllProducts(data.getProducts)
@@ -50,6 +50,7 @@ const Products = ({ productList }: Props) => {
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setVars(query)
+    getProducts()
   }
 
   return (

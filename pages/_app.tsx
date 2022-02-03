@@ -6,6 +6,7 @@ import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
 import CssBaseline from '@mui/material/CssBaseline'
 import { domAnimation, LazyMotion } from 'framer-motion'
 import Box from '@mui/material/Box'
+import { ContactFormProvider } from '../hooks/ContactFormContext'
 
 const client = new ApolloClient({
   uri: '/api/graphql',
@@ -34,7 +35,9 @@ const App = ({ Component, pageProps }: AppProps) => {
         <ThemeProvider theme={theme}>
           <CssBaseline>
             <LazyMotion features={domAnimation} strict>
-              <Component {...pageProps} />
+              <ContactFormProvider>
+                <Component {...pageProps} />
+              </ContactFormProvider>
             </LazyMotion>
           </CssBaseline>
         </ThemeProvider>

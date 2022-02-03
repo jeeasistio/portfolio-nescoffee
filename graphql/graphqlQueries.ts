@@ -17,3 +17,12 @@ export const GET_PRODUCTS = gql`
     }
   }
 `
+
+export const GET_PRODUCTS_NAMES = gql`
+  query GetProductsNames {
+    getProductsNames {
+      name
+      available
+    }
+  }
+`

@@ -17,6 +17,11 @@ const typeDefs = gql`
     products: [Product!]
   }
 
+  type ProductName {
+    name: String!
+    available: Boolean!
+  }
+
   input GetProductsQueryArgs {
     name: String!
     category: String!
@@ -24,6 +29,7 @@ const typeDefs = gql`
 
   type Query {
     getProducts(query: GetProductsQueryArgs!): [ProductList!]
+    getProductsNames: [ProductName!]
   }
 `
 export default typeDefs

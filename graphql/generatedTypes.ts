@@ -40,9 +40,16 @@ export type ProductList = {
   products?: Maybe<Array<Product>>;
 };
 
+export type ProductName = {
+  __typename?: 'ProductName';
+  available: Scalars['Boolean'];
+  name: Scalars['String'];
+};
+
 export type Query = {
   __typename?: 'Query';
   getProducts?: Maybe<Array<ProductList>>;
+  getProductsNames?: Maybe<Array<ProductName>>;
 };
 
 
@@ -56,6 +63,11 @@ export type GetProductsQueryVariables = Exact<{
 
 
 export type GetProductsQuery = { __typename?: 'Query', getProducts?: Array<{ __typename?: 'ProductList', category: string, products?: Array<{ __typename?: 'Product', _id: string, name: string, description: string, image: string, alt: string, price: number, category: string, available: boolean }> | null | undefined }> | null | undefined };
+
+export type GetProductsNamesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetProductsNamesQuery = { __typename?: 'Query', getProductsNames?: Array<{ __typename?: 'ProductName', name: string, available: boolean }> | null | undefined };
 
 
 
@@ -132,6 +144,7 @@ export type ResolversTypes = {
   Int: ResolverTypeWrapper<Scalars['Int']>;
   Product: ResolverTypeWrapper<Product>;
   ProductList: ResolverTypeWrapper<ProductList>;
+  ProductName: ResolverTypeWrapper<ProductName>;
   Query: ResolverTypeWrapper<{}>;
   String: ResolverTypeWrapper<Scalars['String']>;
 };
@@ -144,6 +157,7 @@ export type ResolversParentTypes = {
   Int: Scalars['Int'];
   Product: Product;
   ProductList: ProductList;
+  ProductName: ProductName;
   Query: {};
   String: Scalars['String'];
 };
@@ -166,13 +180,21 @@ export type ProductListResolvers<ContextType = any, ParentType extends Resolvers
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
+export type ProductNameResolvers<ContextType = any, ParentType extends ResolversParentTypes['ProductName'] = ResolversParentTypes['ProductName']> = {
+  available?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
+  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
   getProducts?: Resolver<Maybe<Array<ResolversTypes['ProductList']>>, ParentType, ContextType, RequireFields<QueryGetProductsArgs, 'query'>>;
+  getProductsNames?: Resolver<Maybe<Array<ResolversTypes['ProductName']>>, ParentType, ContextType>;
 };
 
 export type Resolvers<ContextType = any> = {
   Product?: ProductResolvers<ContextType>;
   ProductList?: ProductListResolvers<ContextType>;
+  ProductName?: ProductNameResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
 };
 
@@ -223,3 +245,38 @@ export function useGetProductsLazyQuery(baseOptions?: Apollo.LazyQueryHookOption
 export type GetProductsQueryHookResult = ReturnType<typeof useGetProductsQuery>;
 export type GetProductsLazyQueryHookResult = ReturnType<typeof useGetProductsLazyQuery>;
 export type GetProductsQueryResult = Apollo.QueryResult<GetProductsQuery, GetProductsQueryVariables>;
+export const GetProductsNamesDocument = gql`
+    query GetProductsNames {
+  getProductsNames {
+    name
+    available
+  }
+}
+    `;
+
+/**
+ * __useGetProductsNamesQuery__
+ *
+ * To run a query within a React component, call `useGetProductsNamesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetProductsNamesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetProductsNamesQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetProductsNamesQuery(baseOptions?: Apollo.QueryHookOptions<GetProductsNamesQuery, GetProductsNamesQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetProductsNamesQuery, GetProductsNamesQueryVariables>(GetProductsNamesDocument, options);
+      }
+export function useGetProductsNamesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetProductsNamesQuery, GetProductsNamesQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetProductsNamesQuery, GetProductsNamesQueryVariables>(GetProductsNamesDocument, options);
+        }
+export type GetProductsNamesQueryHookResult = ReturnType<typeof useGetProductsNamesQuery>;
+export type GetProductsNamesLazyQueryHookResult = ReturnType<typeof useGetProductsNamesLazyQuery>;
+export type GetProductsNamesQueryResult = Apollo.QueryResult<GetProductsNamesQuery, GetProductsNamesQueryVariables>;

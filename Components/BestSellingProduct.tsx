@@ -10,8 +10,8 @@ import {
   imageVariant
 } from '../animations/bestSellingProducts'
 import { m, useAnimation } from 'framer-motion'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
+import useContact from '../hooks/useContact'
 
 interface Product {
   image: {
@@ -63,6 +63,8 @@ const sx: SxProps = {
 }
 
 const BestSellingProduct = ({ product }: Props) => {
+  const { handleProductOrder } = useContact()
+
   const orderNowControls = useAnimation()
   const imageControls = useAnimation()
   const router = useRouter()
@@ -78,6 +80,7 @@ const BestSellingProduct = ({ product }: Props) => {
   }
 
   const handleClick = () => {
+    handleProductOrder(product.name)
     router.push('/contacts')
   }
 
