@@ -106,6 +106,7 @@ const BestSellingProduct = ({ product }: Props) => {
                   layout="responsive"
                   width="80%"
                   height="100%"
+                  priority
                 />
               </m.div>
             </Box>

@@ -142,7 +142,7 @@ const HeroPage = () => {
             variants={imageShadowVariant}
           />
           <Image
-            src="https://i.ibb.co/nsxfsvB/hero-page-image-small.jpg"
+            src="/hero_page_image_small.jpg"
             alt="hero-page-image-small"
             layout="fill"
             priority

@@ -16,6 +16,7 @@ import useContact from '../hooks/useContact'
 import React from 'react'
 import { ProductName, useSendEmailMutation } from '../graphql/generatedTypes'
 import { OrderType } from '../hooks/ContactFormContext'
+import StyledAlert from './StyledComponents/StyledAlert'
 
 const sx: SxProps = {
   root: {
@@ -36,6 +37,9 @@ const sx: SxProps = {
   headingCtn: {
     color: 'primary.main'
   },
+  alertCtn: {
+    marginY: 2
+  },
   selectFields: {
     display: 'flex',
     gap: 2
@@ -52,11 +56,18 @@ interface Props {
 const ContactForm = ({ productsNames }: Props) => {
   const { fields, handleField } = useContact()
 
-  const [sendEmail, {data, loading, error}] = useSendEmailMutation({ variables: {form: fields}})
+  const [sendEmail, { data, loading, error, reset }] = useSendEmailMutation({
+    variables: { form: fields },
+    fetchPolicy: 'no-cache'
+  })
 
-  const handleSubmit = (e: React.SyntheticEvent) => {
+  const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault()
-    sendEmail()
+
+    try {
+      await sendEmail()
+      reset()
+    } catch (err) {}
   }
 
   const handleName = (
@@ -102,6 +113,22 @@ const ContactForm = ({ productsNames }: Props) => {
         </Typography>
       </Box>
 
+      {loading && (
+        <Box sx={sx.alertCtn}>
+          <StyledAlert severity="info">Message Sending...</StyledAlert>
+        </Box>
+      )}
+      {data && (
+        <Box sx={sx.alertCtn}>
+          <StyledAlert severity="success">Message Sent...</StyledAlert>
+        </Box>
+      )}
+      {error && (
+        <Box sx={sx.alertCtn}>
+          <StyledAlert severity="error">{error.message}</StyledAlert>
+        </Box>
+      )}
+
       <Box sx={sx.form}>
         <StyledTextField
           variant="outlined"
@@ -109,6 +136,7 @@ const ContactForm = ({ productsNames }: Props) => {
           color="secondary"
           value={fields['name']}
           onChange={handleName}
+          required
         />
 
         <StyledTextField
@@ -118,6 +146,7 @@ const ContactForm = ({ productsNames }: Props) => {
           color="secondary"
           value={fields['email']}
           onChange={handleEmail}
+          required
         />
 
         <Box sx={sx.selectFields}>
@@ -147,7 +176,7 @@ const ContactForm = ({ productsNames }: Props) => {
                   Please select a product
                 </MenuItem>
                 {productsNames.map(({ name, available }) => (
-                  <MenuItem key={name} value={name} disabled={available}>
+                  <MenuItem key={name} value={name} disabled={!available}>
                     {name}
                   </MenuItem>
                 ))}
@@ -163,6 +192,7 @@ const ContactForm = ({ productsNames }: Props) => {
               color="secondary"
               value={fields['quantity']}
               onChange={handleQuantity}
+              required
             />
           )}
         </Box>
@@ -177,7 +207,12 @@ const ContactForm = ({ productsNames }: Props) => {
         />
 
         <m.div variants={contactFormBtnVariant}>
-          <StyledButton type="submit" fullWidth variant="contained" color="secondary">
+          <StyledButton
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="secondary"
+          >
             Send Email
           </StyledButton>
         </m.div>

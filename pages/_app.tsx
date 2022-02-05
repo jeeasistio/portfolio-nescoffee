@@ -21,6 +21,7 @@ const sx: SxProps = {
     background:
       'url(https://i.ibb.co/Qvxd5VG/coffee-background-small-2-edited.jpg)',
     backgroundSize: 'cover',
+    filter: 'blur(1px)',
     zIndex: -2,
     opacity: 0.5
   }

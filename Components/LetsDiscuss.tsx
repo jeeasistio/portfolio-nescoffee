@@ -11,7 +11,7 @@ const sx: SxProps = {
   root: {
     display: 'flex',
     flexDirection: { xs: 'column', md: 'row' },
-    my: 4
+    my: 12
   },
   textCtn: {
     backgroundColor: 'secondary.main',
@@ -66,8 +66,8 @@ const LetsDiscuss = () => {
         <Box sx={sx.textCtnActions}>
           <Typography sx={sx.subheading}>
             We always provide our the best to make the customer pleasant with
-            our services.Ut id lorem urna. Nullam vestibulum odio eget ex
-            molestie lacinia.
+            our services. Please feel free to message us and tell us about your
+            honest opinions.
           </Typography>
           <Link href="/contacts" passHref>
             <StyledButton size="large" variant="contained">
@@ -92,10 +92,11 @@ const LetsDiscuss = () => {
             variants={imageShadowVariant}
           />
           <Image
-            src="https://i.ibb.co/ph46R46/coffee-with-telephone-small.jpg"
+            src="/coffee_with_telephone_small.jpg"
             alt="coffee-with-telephone-small"
             layout="fill"
             objectFit="cover"
+            priority
           />
         </Box>
       </Box>

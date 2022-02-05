@@ -7,6 +7,8 @@ import { fadeFromBottom } from '../animations/fadeFromBottom'
 import { Product } from '../graphql/generatedTypes'
 import StyledButton from './StyledComponents/StyledButton'
 import { m } from 'framer-motion'
+import useContact from '../hooks/useContact'
+import { useRouter } from 'next/router'
 
 const sx: SxProps = {
   innerCtn: {
@@ -16,7 +18,11 @@ const sx: SxProps = {
     boxShadow: 1
   },
   imageCtn: {
-    p: 0.2
+    p: 0.5
+  },
+  image: {
+    boxShadow:
+      'inset 0px 7px 8px -4px rgba(0,0,0,0.2),inset 0px 12px 17px 2px rgba(0,0,0,0.14),inset 0px 5px 22px 4px rgba(0,0,0,0.12)'
   },
   textCtn: {
     p: 1
@@ -39,6 +45,14 @@ interface Props {
 }
 
 const ProductCard = ({ product, index }: Props) => {
+  const { handleProductOrder } = useContact()
+  const router = useRouter()
+
+  const handleClick = () => {
+    handleProductOrder(product.name)
+    router.push('/contacts')
+  }
+
   return (
     <Grid item xs={5.5} sm={4} md={3} lg={2}>
       <Box
@@ -52,8 +66,8 @@ const ProductCard = ({ product, index }: Props) => {
       >
         <Box sx={sx.imageCtn}>
           <Image
-            src="https://i.ibb.co/x1nHqbK/product-coffee-small.jpg"
-            alt="product-coffee-small"
+            src={product.image}
+            alt={product.alt}
             layout="responsive"
             priority
             width={75}
@@ -66,7 +80,12 @@ const ProductCard = ({ product, index }: Props) => {
             {product.description}
           </Typography>
           <Box sx={sx.textActions}>
-            <StyledButton variant="contained" color="secondary" size="small">
+            <StyledButton
+              variant="contained"
+              color="secondary"
+              size="small"
+              onClick={handleClick}
+            >
               Order
             </StyledButton>
             <Typography variant="h5">₱{product.price}</Typography>

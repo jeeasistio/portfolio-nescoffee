@@ -14,7 +14,7 @@ const sx: SxProps = {
     justifyContent: { xs: 'center', md: 'space-between' },
     alignItems: 'center',
     gap: 2,
-    my: 4,
+    my: 12,
     p: 1,
     overflow: 'hidden'
   },
@@ -66,7 +66,7 @@ const sx: SxProps = {
     boxShadow: 1
   },
   howCtn: {
-    backgroundColor: 'primary.main',
+    backgroundColor: 'secondary.main',
     color: 'common.white',
     p: 4,
     my: 2
@@ -104,8 +104,8 @@ const Reviews = () => {
           viewport={{ once: true }}
         >
           <Image
-            src="https://i.ibb.co/sy42VdT/review-coffee-2.jpg"
-            alt="review-coffee-small"
+            src="/review_coffee_small(1).jpg"
+            alt="review-coffee-small-1"
             layout="fill"
             objectFit="cover"
             priority
@@ -120,8 +120,8 @@ const Reviews = () => {
           viewport={{ once: true }}
         >
           <Typography variant="subtitle1" paragraph>
-            “ Aliquam ac purus tortor. Mauris eleifend lectus nulla, egestas
-            tincidunt dolor consequat. “
+            “The coffee is delicious. It relieves my stress. I&apos;m gonna buy
+            again.“
           </Typography>
           <Typography align="right" fontWeight="medium">
             Diana
@@ -142,8 +142,8 @@ const Reviews = () => {
           viewport={{ once: true }}
         >
           <Image
-            src="https://i.ibb.co/QvcxNS6/review-coffee-small-1.jpg"
-            alt="review-coffee-small-1"
+            src="/review_coffee_small.jpg"
+            alt="review-coffee-small"
             layout="fill"
             objectFit="cover"
             priority
@@ -158,8 +158,8 @@ const Reviews = () => {
           viewport={{ once: true }}
         >
           <Typography variant="subtitle1" paragraph>
-            “ Aliquam ac purus tortor. Mauris eleifend lectus nulla, egestas
-            tincidunt dolor consequat. “
+            “Their products are so good. So refreshing and tasty. I think
+            I&apos;m gonna stop by here every morning.“
           </Typography>
           <Typography align="right" fontWeight="medium">
             Anna

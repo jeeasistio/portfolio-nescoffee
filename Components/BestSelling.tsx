@@ -9,36 +9,35 @@ import Grid from '@mui/material/Grid'
 const bestSellers = [
   {
     image: {
-      src: 'https://i.ibb.co/x1nHqbK/product-coffee-small.jpg',
-      alt: 'product-coffee-small'
+      src: '/oreo_coffee_shake.jpg',
+      alt: 'oreo-coffee-shake'
     },
-    name: 'Coffee',
+    name: 'Oreo Coffee Shake',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam atmattis velit.'
+      'Coffee shake filled with oreo cookies mixed with vanilla and cream on top.'
   },
   {
     image: {
-      src: 'https://i.ibb.co/x1nHqbK/product-coffee-small.jpg',
-      alt: 'product-coffee-small'
+      src: '/frappuccino.jpg',
+      alt: 'frappuccino'
     },
-    name: 'Coffee',
+    name: 'Frappuccino',
     description:
-      'Curabitur eleifend finibus quam et maximus. Sed ac nisi in libero elementum.'
+      'Coffee blended with ice and chocolate topped with sweet whipped cream.'
   },
   {
     image: {
-      src: 'https://i.ibb.co/x1nHqbK/product-coffee-small.jpg',
-      alt: 'product-coffee-small'
+      src: '/iced_chocoffee.jpg',
+      alt: 'iced_chocoffee'
     },
-    name: 'Coffee',
-    description:
-      'Aliquam varius sapien id aliquet lobortis. Etiam ultrices urna nisl.'
+    name: 'Iced Chocoffee',
+    description: 'Espresso blended with a bit milk and chocolate flavoring.'
   }
 ]
 
 const sx: SxProps = {
   root: {
-    my: 4
+    my: 12
   },
   bestSellingCtn: {
     width: { xs: 0.6, sm: 0.4, md: 0.3, lg: 0.2, xl: 0.1 },

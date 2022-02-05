@@ -30,7 +30,7 @@ const HeroPageHeader = () => {
           <Link href="/" passHref>
             <a>
               <Image
-                src="https://i.ibb.co/b1rY22n/coffee-logo.png"
+                src="/coffee_logo.png"
                 width="150"
                 height="50"
                 alt="logo"
