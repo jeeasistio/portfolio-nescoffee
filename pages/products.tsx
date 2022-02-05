@@ -20,6 +20,7 @@ interface Props {
 }
 
 const Products = ({ productList }: Props) => {
+  const parsedProductList: IProductList[] = JSON.parse(productList)
   const [query, setQuery] = useState<GetProductsQueryArgs>({
     name: '',
     category: 'All'
@@ -27,7 +28,7 @@ const Products = ({ productList }: Props) => {
   const [vars, setVars] = useState(query)
   const [allProducts, setAllProducts] = useState<
     IProductList[] | undefined | null
-  >(JSON.parse(productList))
+  >(parsedProductList)
 
   const [getProducts, { loading, error }] = useGetProductsLazyQuery({
     variables: { query: vars },
@@ -64,6 +65,7 @@ const Products = ({ productList }: Props) => {
         handleName={handleName}
         handleCategory={handleCategory}
         handleSearch={handleSearch}
+        categories={parsedProductList.map(productList => productList.category)}
       />
 
       {error && <ErrorMessage />}

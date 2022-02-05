@@ -32,6 +32,7 @@ interface ContactFormContent {
   handleField: (field: ContactField, value: ContactFieldValue) => void
   reset: () => void
   handleProductOrder: (productName: string) => void
+  handleContactUs: () => void
 }
 
 export const ContactFormContext = createContext<ContactFormContent>(
@@ -62,9 +63,16 @@ export const ContactFormProvider = ({ children }: Props) => {
     }))
   }
 
+  const handleContactUs = () => {
+    setFields((prev) => ({
+      ...prev,
+      type: OrderType.inquiry
+    }))
+  }
+
   return (
     <ContactFormContext.Provider
-      value={{ fields, handleField, reset, handleProductOrder }}
+      value={{ fields, handleField, reset, handleProductOrder, handleContactUs }}
     >
       {children}
     </ContactFormContext.Provider>

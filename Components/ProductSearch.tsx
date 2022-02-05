@@ -22,10 +22,12 @@ interface Props {
   handleCategory(e: SelectChangeEvent<string>): void
   handleSearch(e: React.FormEvent<HTMLFormElement>): void
   query: GetProductsQueryArgs
+  categories: string[]
 }
 
 const ProductSearch = ({
   query,
+  categories,
   handleName,
   handleCategory,
   handleSearch
@@ -50,8 +52,9 @@ const ProductSearch = ({
             onChange={handleCategory}
           >
             <MenuItem value="All">All</MenuItem>
-            <MenuItem value="Coffee">Coffee</MenuItem>
-            <MenuItem value="Tea">Tea</MenuItem>
+            {categories?.map(cat => (
+              <MenuItem key={cat} value={cat}>{cat}</MenuItem>
+            ))}
           </Select>
         </FormControl>
       </Box>

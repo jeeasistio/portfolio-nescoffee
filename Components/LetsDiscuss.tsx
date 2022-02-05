@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography'
 import { m } from 'framer-motion'
 import { imageShadowVariant, letsDiscussVariant } from '../animations/heroImage'
 import Link from 'next/link'
+import useContact from '../hooks/useContact'
 
 const sx: SxProps = {
   root: {
@@ -57,6 +58,8 @@ const sx: SxProps = {
 }
 
 const LetsDiscuss = () => {
+  const { handleContactUs } = useContact()
+
   return (
     <Box sx={sx.root}>
       <Box sx={sx.textCtn}>
@@ -70,7 +73,7 @@ const LetsDiscuss = () => {
             honest opinions.
           </Typography>
           <Link href="/contacts" passHref>
-            <StyledButton size="large" variant="contained">
+            <StyledButton size="large" variant="contained" onClick={handleContactUs}>
               Contact us
             </StyledButton>
           </Link>

@@ -14,6 +14,7 @@ import {
 import { heroHeadingVariant } from '../animations/heroHeading'
 import { heroImageVariant, imageShadowVariant } from '../animations/heroImage'
 import { marquee } from '../animations/marquee'
+import useContact from '../hooks/useContact'
 import StyledButton from './StyledComponents/StyledButton'
 import BlackBoxBackground from './UtilityComponents/BlackBoxBackground'
 
@@ -123,6 +124,8 @@ const headingWords = `Have\u00a0a\u00a0break.`.split('')
 const words = ['Refreshing', 'Pure Coffee', 'Creamy']
 
 const HeroPage = () => {
+  const { handleContactUs } = useContact()
+
   return (
     <Box sx={sx.root} component="section">
       <BlackBoxBackground />
@@ -207,6 +210,7 @@ const HeroPage = () => {
                   size="large"
                   color="secondary"
                   variant="contained"
+                  onClick={handleContactUs}
                 >
                   Talk to us
                 </StyledButton>
