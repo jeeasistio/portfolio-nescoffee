@@ -25,7 +25,8 @@ const sx: SxProps = {
   gridCtn: {
     gap: 2,
     p: 1,
-    justifyContent: 'center'
+    justifyContent: 'center',
+    alignItems: 'stretch'
   }
 }
 

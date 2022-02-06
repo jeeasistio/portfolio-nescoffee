@@ -9,12 +9,12 @@ import Grid from '@mui/material/Grid'
 const bestSellers = [
   {
     image: {
-      src: '/oreo_coffee_shake.jpg',
-      alt: 'oreo-coffee-shake'
+      src: '/chocoffee_shake.jpg',
+      alt: 'chocoffee-shake'
     },
-    name: 'Oreo Coffee Shake',
+    name: 'Chocoffee Shake',
     description:
-      'Coffee shake filled with oreo cookies mixed with vanilla and cream on top.'
+      'Rich and creamy coffee, filled with chocolate syrup topped with sundae.'
   },
   {
     image: {
