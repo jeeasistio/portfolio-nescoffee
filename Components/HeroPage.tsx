@@ -182,7 +182,7 @@ const HeroPage = () => {
             <Typography sx={sx.subheading} fontWeight="medium">
               Boost your productivity and build your mood with a glass of{' '}
               <Typography component="span" sx={sx.coffeeSubheading}>
-                COFFEE
+                NESCOFFEE
               </Typography>{' '}
               in the morning.
             </Typography>
