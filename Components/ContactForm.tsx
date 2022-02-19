@@ -55,7 +55,6 @@ interface Props {
 
 const ContactForm = ({ productsNames }: Props) => {
   const { fields, handleField, reset } = useContact()
-  const [isSent, setIsSent] = useState(false)
 
   const [sendEmail, { data, loading, error }] = useSendEmailMutation({
     variables: { form: fields },
@@ -64,15 +63,9 @@ const ContactForm = ({ productsNames }: Props) => {
 
   const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault()
-    setIsSent(false)
-
-    try {
-      await sendEmail()
-      setIsSent(true)
-      reset()
-    } catch (err) {
-    setIsSent(false)
-    }
+    
+    await sendEmail()
+    reset()
   }
 
   const handleName = (
@@ -125,7 +118,7 @@ const ContactForm = ({ productsNames }: Props) => {
           <StyledAlert severity="info">Message Sending...</StyledAlert>
         </Box>
       )}
-      {isSent && (
+      {data && (
         <Box sx={sx.alertCtn}>
           <StyledAlert severity="success">Message Sent...</StyledAlert>
         </Box>
