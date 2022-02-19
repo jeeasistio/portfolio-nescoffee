@@ -13,7 +13,7 @@ import {
   contactFormBtnVariant
 } from '../animations/contactForm'
 import useContact from '../hooks/useContact'
-import React from 'react'
+import React, { useState } from 'react'
 import { ProductName, useSendEmailMutation } from '../graphql/generatedTypes'
 import { OrderType } from '../hooks/ContactFormContext'
 import StyledAlert from './StyledComponents/StyledAlert'
@@ -54,20 +54,25 @@ interface Props {
 }
 
 const ContactForm = ({ productsNames }: Props) => {
-  const { fields, handleField } = useContact()
+  const { fields, handleField, reset } = useContact()
+  const [isSent, setIsSent] = useState(false)
 
-  const [sendEmail, { data, loading, error, reset }] = useSendEmailMutation({
+  const [sendEmail, { data, loading, error }] = useSendEmailMutation({
     variables: { form: fields },
     fetchPolicy: 'no-cache'
   })
 
   const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault()
+    setIsSent(false)
 
     try {
       await sendEmail()
+      setIsSent(true)
       reset()
-    } catch (err) {}
+    } catch (err) {
+    setIsSent(false)
+    }
   }
 
   const handleName = (
@@ -97,6 +102,8 @@ const ContactForm = ({ productsNames }: Props) => {
     handleField('product', e.target.value)
   }
 
+  console.log(data, loading, error)
+
   return (
     <Box
       sx={sx.root}
@@ -118,7 +125,7 @@ const ContactForm = ({ productsNames }: Props) => {
           <StyledAlert severity="info">Message Sending...</StyledAlert>
         </Box>
       )}
-      {data && (
+      {isSent && (
         <Box sx={sx.alertCtn}>
           <StyledAlert severity="success">Message Sent...</StyledAlert>
         </Box>
