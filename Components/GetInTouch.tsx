@@ -91,7 +91,7 @@ const GetInTouch = () => {
             </ListItemIcon>
             <Typography>
               <Link href="#">
-                <a>coffee@gmail.com</a>
+                <a>nescoffee@gmail.com</a>
               </Link>
             </Typography>
           </ListItem>
@@ -106,7 +106,7 @@ const GetInTouch = () => {
         </Link>
         <Typography sx={sx.facebookLink}>
           <Link href="#">
-            <a>facebook.com/coffee</a>
+            <a>facebook.com/nescoffee</a>
           </Link>
         </Typography>
       </Box>

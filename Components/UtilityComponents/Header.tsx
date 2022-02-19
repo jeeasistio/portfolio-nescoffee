@@ -31,7 +31,7 @@ const HeroPageHeader = () => {
             <a>
               <Image
                 src="/coffee_logo.png"
-                width="150"
+                width="200"
                 height="50"
                 alt="logo"
               />

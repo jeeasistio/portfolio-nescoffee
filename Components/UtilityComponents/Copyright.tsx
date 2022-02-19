@@ -12,7 +12,7 @@ const Copyright = () => {
   return (
     <Box sx={sx.root}>
       <Typography color="inherit">
-        &copy; {new Date().getFullYear()} Coffee. All Right Reserved
+        &copy; {new Date().getFullYear()} Nescoffee. All Right Reserved
       </Typography>
     </Box>
   )

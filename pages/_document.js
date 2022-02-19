@@ -28,7 +28,7 @@ class MyDocument extends Document {
           href="https://fonts.gstatic.com"
           crossOrigin="true"
         />
-        <link rel="icon" href="/logo_img.ico"></link>
+        <link rel="icon" href="/favicon.ico"></link>
         <title>Coffee</title>
         <meta name="description" content="Best Coffee in the philippines" />
         <body>
