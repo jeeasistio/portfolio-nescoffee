@@ -13,8 +13,8 @@ const sendEmail = async (form: SendEmailArgs) => {
     }
   })
 
-  const inquiryText = `${form.name} wants to inquire. ${form.message}`
-  const orderText = `${form.name} ordered ${form.quantity} ${form.product}. ${form.message}`
+  const inquiryText = `${form.email}, ${form.name} wants to inquire. ${form.message}`
+  const orderText = `${form.email}, ${form.name} ordered ${form.quantity} ${form.product}. ${form.message}`
 
   const sendingEmail = {
     from: `${form.name}, ${form.email}`,
