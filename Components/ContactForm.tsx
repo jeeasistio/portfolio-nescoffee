@@ -95,8 +95,6 @@ const ContactForm = ({ productsNames }: Props) => {
     handleField('product', e.target.value)
   }
 
-  console.log(data, loading, error)
-
   return (
     <Box
       sx={sx.root}
