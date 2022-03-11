@@ -34,13 +34,12 @@ const App = ({ Component, pageProps }: AppProps) => {
 
       <ApolloProvider client={client}>
         <ThemeProvider theme={theme}>
-          <CssBaseline>
-            <LazyMotion features={domAnimation} strict>
-              <ContactFormProvider>
-                <Component {...pageProps} />
-              </ContactFormProvider>
-            </LazyMotion>
-          </CssBaseline>
+          <CssBaseline />
+          <LazyMotion features={domAnimation} strict>
+            <ContactFormProvider>
+              <Component {...pageProps} />
+            </ContactFormProvider>
+          </LazyMotion>
         </ThemeProvider>
       </ApolloProvider>
     </div>
