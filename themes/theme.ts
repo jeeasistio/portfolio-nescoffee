@@ -29,7 +29,7 @@ let theme = createTheme({
   },
   typography: {
     fontSize: 16,
-    fontFamily: ["Old Standard TT", "Crimson Pro"],
+    fontFamily: '"Old Standard TT", "Crimson Pro"',
     h1: {
       fontFamily: 'Old Standard TT'
     },
